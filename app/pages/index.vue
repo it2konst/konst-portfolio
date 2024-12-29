@@ -2,21 +2,17 @@
 
 <template>
     <!-- <header class="header"></header> -->
-    <MHeader />
+    <AppBg />
+    <AppHeader />
 
     <main>
-        <section class="mac">1112222</section>
+        <h1>Home</h1>
     </main>
 
-    <footer class="footer"></footer>
+    <footer class="footer container"></footer>
 </template>
 
 <style lang="scss">
-.header {
-    height: 60px;
-    background-color: #ffffff60;
-}
-
 .main {
     flex: 1;
 }
@@ -25,5 +21,8 @@
     // align-self: center;
     height: 60px;
     background-color: #ffffff60;
+    @include tablet {
+        height: 120px;
+    }
 }
 </style>
