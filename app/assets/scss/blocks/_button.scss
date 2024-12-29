@@ -9,7 +9,7 @@
     color: var(--color-gray-60);
     white-space: nowrap;
     background-color: var(--color-dark);
-    border: var(--border);
+    // border: var(--border);
     border-radius: rem(12);
 
     @include laptop {
@@ -23,6 +23,8 @@
         color: var(--color-accent);
         background-color: var(--color-dark-10);
         border-color: var(--color-accent);
+        outline: 0.125rem solid var(--color-accent);
+        outline-offset: 0.125rem; // 2px
     }
 
     &--accent {

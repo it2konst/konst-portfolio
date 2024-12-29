@@ -2,6 +2,14 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
+const isBurger = ref(false);
+
+const toggleBurger = () => {
+    isBurger.value = !isBurger.value;
+    document.documentElement.classList.toggle("is-lock");
+    // document.body.classList.toggle("is-lock");
+};
+
 interface MenuItem {
     path: string;
     label: string;
@@ -51,7 +59,7 @@ const activeLink = computed(() => route.path);
                         loading="lazy"
                     />
                 </a>
-                <div class="header__overlay" data-js-header-overlay>
+                <div class="header__overlay" :class="{ 'is-active': isBurger }">
                     <nav class="header__menu">
                         <ul class="header__menu-list">
                             <li
@@ -79,10 +87,11 @@ const activeLink = computed(() => route.path);
                 </div>
                 <button
                     class="header__burger-button burger-button visible-mobile"
+                    :class="{ 'is-active': isBurger }"
+                    @click="toggleBurger"
                     type="button"
                     aria-label="Open menu"
                     title="Open menu"
-                    data-js-header-burger-button
                 >
                     <span class="burger-button__line"></span>
                     <span class="burger-button__line"></span>
