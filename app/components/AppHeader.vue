@@ -58,6 +58,7 @@ const activeLink = computed(() => route.path);
                         height="50"
                         loading="lazy"
                     />
+                    <p class="h3">KonstBerg</p>
                 </a>
                 <div class="header__overlay" :class="{ 'is-active': isBurger }">
                     <nav class="header__menu">
@@ -101,3 +102,16 @@ const activeLink = computed(() => route.path);
         </div>
     </header>
 </template>
+
+<style lang="scss">
+.header__body {
+    opacity: 0.75;
+    // zoom: 0.9;
+
+    .header__logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+</style>

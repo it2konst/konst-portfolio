@@ -4,12 +4,8 @@
     <!-- <header class="header"></header> -->
     <AppBg />
     <AppHeader />
-
-    <main>
-        <h1>Home</h1>
-    </main>
-
-    <footer class="footer container"></footer>
+    <MainHero />
+    <!-- <footer class="footer container"></footer> -->
 </template>
 
 <style lang="scss">
