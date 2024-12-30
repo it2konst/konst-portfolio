@@ -1,34 +1,35 @@
 <script lang="ts" setup>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { ref, defineProps } from "vue";
 
 const isBurger = ref(false);
-
 const toggleBurger = () => {
     isBurger.value = !isBurger.value;
-    document.documentElement.classList.toggle("is-lock");
-    // document.body.classList.toggle("is-lock");
+    document.documentElement.classList.toggle("is-lock"); // documentElement - это <html>
 };
+
+const closeMenu = () => {
+    isBurger.value = false;
+    document.documentElement.classList.remove("is-lock");
+};
+
+interface Props {
+    menuActivePath?: string | null;
+}
+const props = defineProps<Props>();
 
 interface MenuItem {
     path: string;
     label: string;
 }
-
-const route = useRoute();
-
 const menuItems: MenuItem[] = [
     { path: "/", label: "Home" },
-    { path: "/news", label: "News" },
+    { path: "/portfolio", label: "Portfolio" },
     { path: "/about", label: "About" },
 ];
-
-// Вычисляемое свойство для активной ссылки
-const activeLink = computed(() => route.path);
 </script>
 
 <template>
-    <header class="header" data-js-header>
+    <header class="header">
         <div class="header__promo">
             <div class="header__promo-inner container">
                 <a
@@ -37,7 +38,7 @@ const activeLink = computed(() => route.path);
                     target="_blank"
                 >
                     <span class="icon icon--yellow-arrow"
-                        >Check out my GitHub - it2konst</span
+                        >Check out my GitHub</span
                     >
                 </a>
             </div>
@@ -58,7 +59,7 @@ const activeLink = computed(() => route.path);
                         height="50"
                         loading="lazy"
                     />
-                    <p class="h3">KonstBerg</p>
+                    <p class="h4">KonstBerg</p>
                 </a>
                 <div class="header__overlay" :class="{ 'is-active': isBurger }">
                     <nav class="header__menu">
@@ -72,7 +73,8 @@ const activeLink = computed(() => route.path);
                                     :to="item.path"
                                     class="header__menu-link"
                                     :class="{
-                                        'is-active': activeLink === item.path,
+                                        'is-active':
+                                            item.path === props.menuActivePath,
                                     }"
                                 >
                                     {{ item.label }}
@@ -106,12 +108,48 @@ const activeLink = computed(() => route.path);
 <style lang="scss">
 .header__body {
     opacity: 0.75;
-    // zoom: 0.9;
 
     .header__logo {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.5rem;
+    }
+
+    .button--accent {
+        width: rem-clamp(150, 180);
+    }
+
+    .header__overlay.is-active .header__menu {
+        padding-block: 0.5rem;
+        .header__menu-link {
+            zoom: 1.2;
+            position: relative;
+            display: grid;
+            place-content: center;
+
+            width: rem-clamp(150, 180);
+            border-radius: rem(10);
+            background-color: transparent;
+
+            &::after {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                inset: 0;
+                border-radius: rem(10);
+                border: 2px solid #ffffff60;
+                background-color: var(--color-dark-10);
+                pointer-events: none;
+            }
+
+            &.is-active {
+                background-color: #ffffff20;
+            }
+
+            @include hover {
+                background-color: #ffffff20;
+            }
+        }
     }
 }
 </style>

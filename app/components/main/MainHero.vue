@@ -29,10 +29,11 @@
 }
 
 .hero__main {
-    background-color: var(--color-dark-10);
-    border-radius: 2rem;
     padding: rem-clamp(20, 40);
     opacity: 0.75;
+    border-radius: 2rem;
+    outline: var(--border);
+    background-color: var(--color-dark-10);
 }
 
 .hero__body {
