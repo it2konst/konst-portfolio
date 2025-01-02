@@ -3,9 +3,11 @@
 .button {
     display: inline-flex;
     justify-content: center;
-    min-width: rem(137);
-    padding: rem(18) rem(24);
-    font-size: rem(18);
+    // min-width: rem(137);
+    // padding: rem(18) rem(24);
+    padding: rem-clamp(6, 10) rem-clamp(12, 16);
+    // font-size: rem(18);
+    font-size: rem-clamp(16, 20);
     color: var(--color-gray-60);
     white-space: nowrap;
     background-color: var(--color-dark);
@@ -13,9 +15,9 @@
     border-radius: rem(12);
 
     @include laptop {
-        min-width: rem(103);
-        padding: rem(14) rem(20);
-        font-size: rem(14);
+        // min-width: rem(103);
+        // padding: rem(14) rem(20);
+        // font-size: rem(14);
         border-radius: rem(8);
     }
 

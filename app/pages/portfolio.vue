@@ -5,8 +5,9 @@ const menuActivePath = "/portfolio";
 <template>
     <AppBg />
     <AppHeader :menu-active-path="menuActivePath" />
-    <main>
-        <h1 class="container">Portfolio</h1>
+    <main class="container">
+        <h1>Portfolio</h1>
+        <AppCards />
     </main>
 </template>
 

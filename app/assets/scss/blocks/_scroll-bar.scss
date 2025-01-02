@@ -1,0 +1,19 @@
+// html {
+//   scrollbar-gutter: stable;
+// }
+
+@media (hover: hover) {
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+        background: var(--color-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-dark-20);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        border-radius: 1rem;
+        background: var(--color-dark-40);
+    }
+}

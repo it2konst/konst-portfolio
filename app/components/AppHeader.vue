@@ -1,21 +1,17 @@
 <script lang="ts" setup>
-import { ref, defineProps } from "vue";
+import { ref, onMounted } from "vue";
 
+const IS_LOCK_CLASS = "is-lock";
 const isBurger = ref(false);
 const toggleBurger = () => {
     isBurger.value = !isBurger.value;
-    document.documentElement.classList.toggle("is-lock"); // documentElement - это <html>
+    document.documentElement.classList.toggle(IS_LOCK_CLASS); // documentElement - это <html>
 };
 
-const closeMenu = () => {
-    isBurger.value = false;
-    document.documentElement.classList.remove("is-lock");
-};
-
+const props = defineProps<Props>();
 interface Props {
     menuActivePath?: string | null;
 }
-const props = defineProps<Props>();
 
 interface MenuItem {
     path: string;
@@ -26,31 +22,27 @@ const menuItems: MenuItem[] = [
     { path: "/portfolio", label: "Portfolio" },
     { path: "/about", label: "About" },
 ];
+
+onMounted(async () => {
+    isBurger.value = false;
+    if (document.documentElement.classList.contains(IS_LOCK_CLASS)) {
+        document.documentElement.classList.remove(IS_LOCK_CLASS);
+    }
+});
 </script>
 
 <template>
     <header class="header">
-        <div class="header__promo">
+        <!-- <div class="header__promo">
             <div class="header__promo-inner container">
-                <a
-                    class="header__promo-link"
-                    href="https://github.com/it2konst"
-                    target="_blank"
-                >
-                    <span class="icon icon--yellow-arrow"
-                        >Check out my GitHub</span
-                    >
+                <a class="header__promo-link" href="https://github.com/it2konst" target="_blank">
+                    <span class="icon icon--yellow-arrow">Check out my GitHub</span>
                 </a>
             </div>
-        </div>
+        </div> -->
         <div class="header__body">
             <div class="header__body-inner container">
-                <a
-                    class="header__logo logo"
-                    href="/"
-                    aria-label="Home"
-                    title="Home"
-                >
+                <a class="header__logo logo" href="/" aria-label="Home" title="Home" draggable="false">
                     <img
                         class="logo__image"
                         src="/images/logo.svg"
@@ -58,23 +50,19 @@ const menuItems: MenuItem[] = [
                         width="50"
                         height="50"
                         loading="lazy"
+                        draggable="false"
                     />
                     <p class="h4">KonstBerg</p>
                 </a>
                 <div class="header__overlay" :class="{ 'is-active': isBurger }">
                     <nav class="header__menu">
                         <ul class="header__menu-list">
-                            <li
-                                class="header__menu-item"
-                                v-for="item in menuItems"
-                                :key="item.path"
-                            >
+                            <li class="header__menu-item" v-for="item in menuItems" :key="item.path">
                                 <NuxtLink
                                     :to="item.path"
                                     class="header__menu-link"
                                     :class="{
-                                        'is-active':
-                                            item.path === props.menuActivePath,
+                                        'is-active': item.path === props.menuActivePath,
                                     }"
                                 >
                                     {{ item.label }}
@@ -82,11 +70,7 @@ const menuItems: MenuItem[] = [
                             </li>
                         </ul>
                     </nav>
-                    <NuxtLink
-                        to="/contact"
-                        class="header__contact-us-link button button--accent"
-                        >Contact Us
-                    </NuxtLink>
+                    <NuxtLink to="/contact" class="header__contact-us-link button button--accent">Contact Us </NuxtLink>
                 </div>
                 <button
                     class="header__burger-button burger-button visible-mobile"
@@ -107,7 +91,7 @@ const menuItems: MenuItem[] = [
 
 <style lang="scss">
 .header__body {
-    opacity: 0.75;
+    opacity: 0.85;
 
     .header__logo {
         display: flex;

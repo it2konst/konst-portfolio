@@ -2,8 +2,8 @@
 
 <template>
     <main>
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero__main container">
+        <section class="hero container" aria-labelledby="hero-title">
+            <div class="hero__main">
                 <div class="hero__body">
                     <h1 class="hero__title" id="hero-title">
                         Frontend Developer | Building Modern, Responsive Web
