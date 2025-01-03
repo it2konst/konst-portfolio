@@ -22,7 +22,8 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
     try {
-        const response = await $fetch<Card[]>("/api/cards"); // ("/api/cards?limit=3");
+        // const response = await $fetch<Card[]>("/api/cards.get"); // ("/api/cards?limit=3");
+        const response = await $fetch<Card[]>("/api/cards");
         cards.value = response;
     } catch (err) {
         error.value = "Failed to load cards. Please try again later.";
@@ -31,12 +32,29 @@ onMounted(async () => {
         isLoading.value = false;
     }
 });
+
+const loadCards = async () => {
+    isLoading.value = true;
+    error.value = null;
+    try {
+        const response = await $fetch<Card[]>("/api/cards");
+        cards.value = response;
+    } catch (err) {
+        error.value = "Failed to load cards. Please try again later.";
+        console.error(err);
+    } finally {
+        isLoading.value = false;
+    }
+};
 </script>
 
 <template>
     <div v-if="isLoading">Loading...</div>
     <div v-else-if="error">{{ error }}</div>
-    <div v-else></div>
+    <div v-else-if="error">
+        {{ error }}
+        <button @click="loadCards">Retry</button>
+    </div>
     <section class="cards">
         <figure class="cards__item" v-for="card in cards" :key="card.id">
             <div
