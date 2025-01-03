@@ -2,6 +2,9 @@ import { readFile } from "fs/promises";
 import { join } from "path";
 import { defineEventHandler } from "h3";
 
+// Путь к JSON-файлу
+const projectCardsPath = "/server/project-cards.json";
+
 interface Card {
     id: number;
     title: string;
@@ -12,7 +15,8 @@ interface JsonData {
 }
 
 export default defineEventHandler(async (event) => {
-    const jsonPath = join(process.cwd(), "server", "api", "project-cards.json");
+    // Формируем полный путь к файлу
+    const jsonPath = join(process.cwd(), projectCardsPath);
 
     // Асинхронное чтение файла
     const fileContent = await readFile(jsonPath, "utf-8");
