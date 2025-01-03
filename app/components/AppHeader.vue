@@ -70,7 +70,12 @@ onMounted(async () => {
                             </li>
                         </ul>
                     </nav>
-                    <NuxtLink to="/contact" class="header__contact-us-link button button--accent">Contact Us </NuxtLink>
+                    <NuxtLink
+                        to="https://github.com/it2konst"
+                        target="_blank"
+                        class="header__contact-us-link button button--accent"
+                        >My GitHub</NuxtLink
+                    >
                 </div>
                 <button
                     class="header__burger-button burger-button visible-mobile"
@@ -102,10 +107,14 @@ onMounted(async () => {
         width: rem-clamp(150, 180);
     }
 
+    .header__menu-link {
+        font-size: rem-clamp(16, 20);
+    }
+
     .header__overlay.is-active .header__menu {
         padding-block: 0.5rem;
         .header__menu-link {
-            zoom: 1.2;
+            // zoom: 1.2;
             position: relative;
             display: grid;
             place-content: center;

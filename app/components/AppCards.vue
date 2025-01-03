@@ -22,7 +22,6 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
     try {
-        // const response = await $fetch<Card[]>("/api/cards.get"); // ("/api/cards?limit=3");
         const response = await $fetch<Card[]>("/api/cards");
         cards.value = response;
     } catch (err) {
@@ -50,32 +49,37 @@ const loadCards = async () => {
 
 <template>
     <div v-if="isLoading">Loading...</div>
-    <div v-else-if="error">{{ error }}</div>
     <div v-else-if="error">
         {{ error }}
         <button @click="loadCards">Retry</button>
     </div>
-    <section class="cards">
-        <figure class="cards__item" v-for="card in cards" :key="card.id">
-            <div
-                class="cards__img-wrap"
-                :data-desc="card.dataDesc ?? 'data Description'"
-                :lang="card.dataLang ?? 'en-En'"
-            >
-                <NuxtImg :src="card.img" :alt="card.imgAlt" format="webp" draggable="false" />
-            </div>
-            <figcaption class="cards__content">
-                <div class="cards__svg-wrap">
-                    <SvgHeader :name="card.svgIcon" size="40" :offsetX="0" :offsetY="3" />
+    <section v-else class="cards">
+        <NuxtLink v-for="card in cards" :key="card.id" :to="`/cards/${card.id}`">
+            <figure class="cards__item">
+                <div
+                    class="cards__img-wrap"
+                    :data-desc="card.dataDesc ?? 'data Description'"
+                    :lang="card.dataLang ?? 'en-En'"
+                >
+                    <NuxtImg :src="card.img" :alt="card.imgAlt" format="webp" draggable="false" />
                 </div>
-                <h3 class="cards__title">{{ card.title ?? "Title" }}</h3>
-                <p class="cards__description" :lang="card.descLang ?? 'en-En'" v-html="card.desc ?? 'Description'"></p>
-                <div class="cards__button-wrap" @click.stop>
-                    <a :href="card.gitHub ?? '#'" target="_blank" class="button button--accent">GitHub</a>
-                    <a :href="card.liveSite ?? '#'" target="_blank" class="button button--accent">Live Site</a>
-                </div>
-            </figcaption>
-        </figure>
+                <figcaption class="cards__content">
+                    <div class="cards__svg-wrap">
+                        <SvgHeader :name="card.svgIcon" size="40" :offsetX="0" :offsetY="3" />
+                    </div>
+                    <h3 class="cards__title">{{ card.title ?? "Title" }}</h3>
+                    <p
+                        class="cards__description"
+                        :lang="card.descLang ?? 'en-En'"
+                        v-html="card.desc ?? 'Description'"
+                    ></p>
+                    <div class="cards__button-wrap" @click.stop>
+                        <a :href="card.gitHub ?? '#'" target="_blank" class="button button--accent">GitHub</a>
+                        <a :href="card.liveSite ?? '#'" target="_blank" class="button button--accent">Live Site</a>
+                    </div>
+                </figcaption>
+            </figure>
+        </NuxtLink>
     </section>
 </template>
 

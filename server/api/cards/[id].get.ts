@@ -2,25 +2,28 @@ import { defineEventHandler, createError } from "h3";
 import { jsonData } from "../../data";
 
 export default defineEventHandler(async (event) => {
-    const cardIdParam = event.context.params?.id;
+    // Получаем ID из параметров маршрута
+    const cardId = event.context.params?.id;
 
-    if (!cardIdParam) {
+    if (!cardId) {
         throw createError({
             statusCode: 400,
             statusMessage: "Card ID is required",
         });
     }
 
-    const cardId = Number(cardIdParam);
+    // Преобразуем ID в число
+    const id = Number(cardId);
 
-    if (isNaN(cardId)) {
+    if (isNaN(id)) {
         throw createError({
             statusCode: 400,
             statusMessage: "Invalid Card ID",
         });
     }
 
-    const card = jsonData.cards.find((card) => card.id === cardId);
+    // Ищем карточку по ID
+    const card = jsonData.cards.find((card) => card.id === id);
 
     if (!card) {
         throw createError({
@@ -29,5 +32,6 @@ export default defineEventHandler(async (event) => {
         });
     }
 
+    // Возвращаем найденную карточку
     return card;
 });
