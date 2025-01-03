@@ -12,7 +12,7 @@ interface JsonData {
 }
 
 export default defineEventHandler(async (event) => {
-    const jsonPath = join(process.cwd(), "public", "project-cards.json");
+    const jsonPath = join(process.cwd(), "app", "assets", "project-cards.json");
 
     // Асинхронное чтение файла
     const fileContent = await readFile(jsonPath, "utf-8");

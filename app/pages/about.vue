@@ -11,7 +11,7 @@ const menuActivePath = "/about";
             <svg class="circle" viewBox="0 0 100 100">
                 <path id="circle" d="M 0,50 a 50,50 0 1,1 0,1 z" />
                 <text>
-                    <textPath xlink:href="#circle">Текст</textPath>
+                    <textPath xlink:href="#circle">About - Konst - Portfolio</textPath>
                 </text>
             </svg>
         </section>
