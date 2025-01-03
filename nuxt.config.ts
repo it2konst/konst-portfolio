@@ -3,7 +3,9 @@ export default defineNuxtConfig({
     future: {
         compatibilityVersion: 4,
     },
-
+    nitro: {
+        includeFiles: ["server/data/data-cards.json"], // Указать путь к файлу
+    },
     devtools: { enabled: true },
     routeRules: { "/": { prerender: true } },
     vite: {

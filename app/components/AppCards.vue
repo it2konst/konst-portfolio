@@ -19,7 +19,7 @@ interface Card {
 const cards = ref<Card[]>([]);
 // https://konst-portfolio.vercel.app/api/cards
 onMounted(async () => {
-    const response = await $fetch<Card[]>("api/cards"); // ("/api/cards?limit=3");
+    const response = await $fetch<Card[]>("/api/cards"); // ("/api/cards?limit=3");
     cards.value = response;
 });
 </script>
