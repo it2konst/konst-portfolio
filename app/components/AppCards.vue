@@ -7,6 +7,8 @@ interface Card {
     title: string;
     desc: string;
     descLang: string;
+    dataDesc: string;
+    dataLang: string;
     liveSite: string;
     gitHub: string;
     img: string;
@@ -15,9 +17,9 @@ interface Card {
 }
 
 const cards = ref<Card[]>([]);
-
+// https://konst-portfolio.vercel.app/api/cards
 onMounted(async () => {
-    const response = await $fetch<Card[]>("/api/cards"); // ("/api/cards?limit=3");
+    const response = await $fetch<Card[]>("api/cards"); // ("/api/cards?limit=3");
     cards.value = response;
 });
 </script>
@@ -25,7 +27,11 @@ onMounted(async () => {
 <template>
     <section class="cards">
         <figure class="cards__item" v-for="card in cards" :key="card.id">
-            <div class="cards__img-wrap">
+            <div
+                class="cards__img-wrap"
+                :data-desc="card.dataDesc ?? 'data Description'"
+                :lang="card.dataLang ?? 'en-En'"
+            >
                 <NuxtImg :src="card.img" :alt="card.imgAlt" format="webp" draggable="false" />
             </div>
             <figcaption class="cards__content">
@@ -45,6 +51,7 @@ onMounted(async () => {
 
 <style lang="scss">
 .cards {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: rem-clamp(24, 48);
@@ -77,11 +84,12 @@ onMounted(async () => {
     }
 
     &__img-wrap {
+        // z-index: 3;
         max-width: rem-clamp(300, 360);
         width: 100%;
         aspect-ratio: 16 / 9;
-        overflow: hidden;
-        background-color: transparent;
+        // overflow: hidden;
+        // background-color: transparent;
 
         @include mobile-s {
             max-width: 100%;
@@ -194,9 +202,9 @@ onMounted(async () => {
         // hyphens: auto;
         // word-wrap: break-word;
 
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-        -ms-hyphens: auto;
+        // -webkit-hyphens: auto;
+        // -moz-hyphens: auto;
+        // -ms-hyphens: auto;
         hyphens: auto;
         word-wrap: break-word;
 
@@ -229,6 +237,75 @@ onMounted(async () => {
             width: 100%;
             user-select: none;
         }
+    }
+
+    //---dataDesc---
+    .cards__img-wrap::after {
+        content: "";
+        position: absolute;
+        left: -50%;
+        top: -50%;
+        z-index: 1;
+
+        width: 160%;
+        height: 160%;
+        // border-radius: 50%;
+        border-radius: 0 0 100% 0;
+        background-color: #00000060;
+        outline: var(--outline);
+        pointer-events: none;
+
+        transform-origin: top left;
+        transform: scale(0);
+        // transform: scale(1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .cards__img-wrap:hover::after {
+        transform: scale(1);
+    }
+
+    .cards__img-wrap::before {
+        content: attr(data-desc);
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+
+        padding: 0.5rem 1rem;
+        // background-color: transparent;
+        background-color: #00000060;
+        pointer-events: none;
+
+        font-family: var(--font-family-base);
+        font-weight: 400;
+        font-size: rem-clamp(18, 22);
+        // font-size: rem(18);
+        letter-spacing: -0.03em;
+        line-height: 1.2;
+        color: var(--color-light);
+
+        hyphens: auto;
+        word-wrap: break-word;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        // border-radius: 0 0 0 100%;
+
+        opacity: 0;
+        // opacity: 0.75;
+        transition: opacity 0.4s ease-in-out;
+
+        // @include mobile-s {
+        //     font-size: rem(18);
+        // }
+    }
+
+    .cards__img-wrap:hover::before {
+        opacity: 0.85;
     }
 }
 </style>

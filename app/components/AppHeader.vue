@@ -92,7 +92,6 @@ onMounted(async () => {
 <style lang="scss">
 .header__body {
     opacity: 0.85;
-
     .header__logo {
         display: flex;
         align-items: center;
