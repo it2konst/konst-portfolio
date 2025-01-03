@@ -17,14 +17,26 @@ interface Card {
 }
 
 const cards = ref<Card[]>([]);
-// https://konst-portfolio.vercel.app/api/cards
+const isLoading = ref(true);
+const error = ref<string | null>(null);
+
 onMounted(async () => {
-    const response = await $fetch<Card[]>("/api/cards"); // ("/api/cards?limit=3");
-    cards.value = response;
+    try {
+        const response = await $fetch<Card[]>("/api/cards"); // ("/api/cards?limit=3");
+        cards.value = response;
+    } catch (err) {
+        error.value = "Failed to load cards. Please try again later.";
+        console.error(err);
+    } finally {
+        isLoading.value = false;
+    }
 });
 </script>
 
 <template>
+    <div v-if="isLoading">Loading...</div>
+    <div v-else-if="error">{{ error }}</div>
+    <div v-else></div>
     <section class="cards">
         <figure class="cards__item" v-for="card in cards" :key="card.id">
             <div
