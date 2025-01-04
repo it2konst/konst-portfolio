@@ -37,7 +37,8 @@
 .hero {
     padding-block: rem-clamp(20, 40);
     // zoom: 0.9;
-    opacity: 0.75;
+    // opacity: 0.75;
+    opacity: 0.9;
 
     .hero__main {
         padding: rem-clamp(20, 40);
@@ -55,10 +56,10 @@
     }
 
     .hero__title {
-        padding: 0.2rem 1rem 0.4rem 1rem;
+        // padding: 0.2rem 1rem 0.4rem 1rem;
 
         border-radius: 2rem;
-        background-color: #f5f5f530;
+        // background-color: #f5f5f530;
 
         text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191,
             1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 2px rgba(16, 16, 16, 0.4),
