@@ -4,10 +4,21 @@ export default defineNuxtConfig({
     future: { compatibilityVersion: 4 },
     devtools: { enabled: true },
     routeRules: { "/": { prerender: true } },
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `
+                        @use 'assets/scss/main.scss' as *;
+                        @use 'assets/scss/helpers/index' as *;
+                    `,
+                },
+            },
+        },
+    },
     modules: ["@nuxt/image"],
     image: {
         domains: ["https://konst-portfolio.vercel.app"],
         format: ["webp"],
     },
-    css: ["~/assets/scss/main.scss"],
 });

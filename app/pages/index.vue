@@ -6,4 +6,7 @@
     </section>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+// @use "~/assets/scss/helpers/index" as *;
+// style page Home
+</style>

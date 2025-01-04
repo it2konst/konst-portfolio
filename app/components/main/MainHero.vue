@@ -6,14 +6,12 @@
             <div class="hero__main">
                 <div class="hero__body">
                     <h1 class="hero__title" id="hero-title">
-                        Frontend Developer | Building Modern, Responsive Web
-                        Solutions
+                        Frontend Developer | Building Modern, Responsive Web Solutions
                     </h1>
                     <div class="hero__description">
                         <p>
-                            Specializing in creating modern and functional
-                            websites using HTML, CSS, JavaScript, as well as
-                            working with React and Vue.
+                            Specializing in creating modern and functional websites using HTML, CSS, JavaScript, as well
+                            as working with React and Vue.
                         </p>
                     </div>
                 </div>
@@ -23,6 +21,9 @@
 </template>
 
 <style lang="scss">
+@use "~/assets/scss/helpers/index" as *;
+// style section Hero
+
 .hero {
     padding-block: rem-clamp(20, 40);
     zoom: 0.9;

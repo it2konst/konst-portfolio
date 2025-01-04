@@ -38,8 +38,6 @@ onMounted(async () => {
 </script>
 
 <template>
-    <!-- <AppBg /> -->
-    <!-- <AppHeader /> -->
     <div v-if="isLoading">Loading...</div>
     <div v-else-if="error">{{ error }}</div>
     <div v-else-if="card" class="card-details container">
@@ -60,7 +58,9 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" scoped>
-// style card-details
+@use "~/assets/scss/helpers/index" as *;
+// style card-id
+
 .card-details {
     display: flex;
     flex-direction: column;

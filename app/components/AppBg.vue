@@ -5,6 +5,9 @@
 </template>
 
 <style lang="scss">
+@use "~/assets/scss/helpers/index" as *;
+// style Background
+
 .app__bg-image {
     position: fixed;
     top: 0;
@@ -38,22 +41,14 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-image: linear-gradient(
-                to bottom,
-                rgba(255, 255, 255, 0) 40%,
-                rgba(0, 0, 0, 0.5) 100%
-            ),
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.5) 100%),
             url("/images/app-bg.webp");
         background-repeat: no-repeat repeat;
         background-size: cover;
         background-position: center;
 
         @include tablet {
-            background-image: linear-gradient(
-                    to bottom,
-                    rgba(255, 255, 255, 0) 40%,
-                    rgba(0, 0, 0, 0.5) 100%
-                ),
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.5) 100%),
                 url("/images/app-bg-1024.webp");
         }
     }
