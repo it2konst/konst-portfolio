@@ -48,10 +48,10 @@ const loadCards = async () => {
 </script>
 
 <template>
-    <div v-if="isLoading">Loading...</div>
-    <div v-else-if="error">
+    <div v-if="isLoading" class="h3">Loading...</div>
+    <div v-else-if="error" class="h3">
         {{ error }}
-        <button @click="loadCards">Retry</button>
+        <button class="button button--accent" @click="loadCards">Retry</button>
     </div>
     <section v-else class="cards">
         <NuxtLink v-for="card in cards" :key="card.id" :to="`/cards/${card.id}`">
@@ -235,15 +235,6 @@ const loadCards = async () => {
         text-overflow: ellipsis;
         margin-bottom: 0.8rem;
 
-        // text-align: justify;
-        // word-break: break-all;
-        // overflow-wrap: break-word;
-        // hyphens: auto;
-        // word-wrap: break-word;
-
-        // -webkit-hyphens: auto;
-        // -moz-hyphens: auto;
-        // -ms-hyphens: auto;
         hyphens: auto;
         word-wrap: break-word;
 
@@ -288,7 +279,6 @@ const loadCards = async () => {
 
         width: 160%;
         height: 160%;
-        // border-radius: 50%;
         border-radius: 0 0 100% 0;
         background-color: #00000060;
         outline: var(--outline);
@@ -318,7 +308,6 @@ const loadCards = async () => {
         font-family: var(--font-family-base);
         font-weight: 400;
         font-size: rem-clamp(18, 22);
-        // font-size: rem(18);
         letter-spacing: -0.03em;
         line-height: 1.2;
         color: var(--color-light);
@@ -332,15 +321,8 @@ const loadCards = async () => {
         overflow: hidden;
         text-overflow: ellipsis;
 
-        // border-radius: 0 0 0 100%;
-
         opacity: 0;
-        // opacity: 0.75;
         transition: opacity 0.4s ease-in-out;
-
-        // @include mobile-s {
-        //     font-size: rem(18);
-        // }
     }
 
     .cards__img-wrap:hover::before {

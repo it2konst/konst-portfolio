@@ -39,11 +39,11 @@
     }
 
     &__body {
-        padding-block: rem(24);
+        padding-block: 1.25rem; // 20px
         background-color: var(--color-dark-10);
 
         @include mobile {
-            padding-block: rem(20);
+            padding-block: 0.75rem; // 12px
         }
 
         &-inner {
