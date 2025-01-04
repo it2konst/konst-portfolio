@@ -6,7 +6,7 @@
             <div class="hero__main">
                 <div class="hero__body">
                     <h1 class="hero__title" id="hero-title">
-                        ✨ Создаю современные и функциональные веб-сайты, которые работают на результат.
+                        Создаю современные и функциональные веб-сайты, которые работают на результат.
                     </h1>
                     <div class="hero__description">
                         <p>
@@ -56,8 +56,8 @@
     }
 
     .hero__title {
+        position: relative;
         // padding: 0.2rem 1rem 0.4rem 1rem;
-
         border-radius: 2rem;
         // background-color: #f5f5f530;
 
@@ -67,6 +67,22 @@
 
         hyphens: auto;
         word-wrap: break-word;
+
+        &::before {
+            content: "✨";
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -0.5rem;
+            bottom: -0.5rem;
+            right: -0.5rem;
+            background-color: #f5f5f510;
+            border-radius: 2rem;
+            pointer-events: none;
+        }
     }
 
     .hero__description {

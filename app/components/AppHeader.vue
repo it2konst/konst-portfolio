@@ -108,13 +108,34 @@ const menuItems: MenuItem[] = [
 
     .header__overlay.is-active .header__menu {
         padding-block: 0.5rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 50%;
+            border-radius: 2rem;
+            background-color: #ffffff10;
+
+            // background-color: transparent;
+            outline: var(--outline);
+            pointer-events: none;
+            // filter: blur(0.1rem);
+        }
         .header__menu-link {
             display: grid;
             place-content: center;
             width: rem-clamp(150, 180);
 
             border-radius: rem(10);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+
+            &.is-active {
+                outline: var(--outline);
+            }
 
             @include hover {
                 background-color: #ffffff20;
