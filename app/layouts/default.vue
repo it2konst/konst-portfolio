@@ -1,9 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-    <section class="home container">
-        <MainHero />
-    </section>
+    <AppBg />
+    <AppHeader />
+    <main>
+        <slot />
+    </main>
 </template>
 
 <style lang="scss"></style>

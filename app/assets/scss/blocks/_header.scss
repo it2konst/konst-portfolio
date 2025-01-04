@@ -110,7 +110,8 @@
                 color: var(--color-light);
                 font-weight: 500;
                 background-color: var(--color-dark);
-                border: var(--border);
+                // border: var(--border);
+                outline: var(--outline);
                 border-radius: rem(10);
                 pointer-events: none;
             }

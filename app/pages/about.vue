@@ -1,34 +1,33 @@
-<script setup lang="ts">
-const menuActivePath = "/about";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <AppBg />
-    <AppHeader :menu-active-path="menuActivePath" />
-    <main>
-        <section class="about container">
-            <h1>About</h1>
-            <svg class="circle" viewBox="0 0 100 100">
-                <path id="circle" d="M 0,50 a 50,50 0 1,1 0,1 z" />
-                <text>
-                    <textPath xlink:href="#circle">About - Konst - Portfolio 4</textPath>
-                </text>
-            </svg>
-        </section>
-    </main>
+    <section class="about container">
+        <h1 class="app__title-3d">About</h1>
+    </section>
 </template>
 
 <style lang="scss">
-.circle {
-    display: block;
-    overflow: visible;
-    width: 100px;
-    font-size: 28px;
-    fill: darkgoldenrod;
-    margin-left: 2rem;
+// style portfolio
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-block: 2rem;
 }
+.app__title-3d {
+    padding: 0.2rem 1rem 1rem 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #f5f5f5cc;
 
-.circle path {
-    fill: none;
+    border-radius: 2rem;
+    background-color: #f5f5f5cc;
+    opacity: 0.85;
+
+    text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191,
+        1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191,
+        1px 18px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2),
+        1px 30px 60px rgba(16, 16, 16, 0.4);
 }
 </style>

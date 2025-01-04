@@ -38,8 +38,8 @@ onMounted(async () => {
 </script>
 
 <template>
-    <AppBg />
-    <AppHeader />
+    <!-- <AppBg /> -->
+    <!-- <AppHeader /> -->
     <div v-if="isLoading">Loading...</div>
     <div v-else-if="error">{{ error }}</div>
     <div v-else-if="card" class="card-details container">

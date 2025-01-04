@@ -1,17 +1,19 @@
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
+const appRouter = useRouter();
 const IS_LOCK_CLASS = "is-lock";
+
 const isBurger = ref(false);
 const toggleBurger = () => {
     isBurger.value = !isBurger.value;
-    document.documentElement.classList.toggle(IS_LOCK_CLASS); // documentElement - это <html>
+    document.documentElement.classList.toggle(IS_LOCK_CLASS);
 };
-
-const props = defineProps<Props>();
-interface Props {
-    menuActivePath?: string | null;
-}
+const closeMenu = () => {
+    isBurger.value = false;
+    document.documentElement.classList.remove(IS_LOCK_CLASS);
+};
 
 interface MenuItem {
     path: string;
@@ -22,24 +24,10 @@ const menuItems: MenuItem[] = [
     { path: "/portfolio", label: "Portfolio" },
     { path: "/about", label: "About" },
 ];
-
-onMounted(async () => {
-    isBurger.value = false;
-    if (document.documentElement.classList.contains(IS_LOCK_CLASS)) {
-        document.documentElement.classList.remove(IS_LOCK_CLASS);
-    }
-});
 </script>
 
 <template>
     <header class="header">
-        <!-- <div class="header__promo">
-            <div class="header__promo-inner container">
-                <a class="header__promo-link" href="https://github.com/it2konst" target="_blank">
-                    <span class="icon icon--yellow-arrow">Check out my GitHub</span>
-                </a>
-            </div>
-        </div> -->
         <div class="header__body">
             <div class="header__body-inner container">
                 <a class="header__logo logo" href="/" aria-label="Home" title="Home" draggable="false">
@@ -54,7 +42,7 @@ onMounted(async () => {
                     />
                     <p class="h4">KonstBerg</p>
                 </a>
-                <div class="header__overlay" :class="{ 'is-active': isBurger }">
+                <div class="header__overlay" :class="{ 'is-active': isBurger }" @click="closeMenu">
                     <nav class="header__menu">
                         <ul class="header__menu-list">
                             <li class="header__menu-item" v-for="item in menuItems" :key="item.path">
@@ -62,7 +50,7 @@ onMounted(async () => {
                                     :to="item.path"
                                     class="header__menu-link"
                                     :class="{
-                                        'is-active': item.path === props.menuActivePath,
+                                        'is-active': item.path === appRouter.currentRoute.value.fullPath,
                                     }"
                                 >
                                     {{ item.label }}
@@ -96,7 +84,7 @@ onMounted(async () => {
 
 <style lang="scss">
 .header__body {
-    opacity: 0.85;
+    opacity: 0.9;
     .header__logo {
         display: flex;
         align-items: center;
@@ -114,29 +102,12 @@ onMounted(async () => {
     .header__overlay.is-active .header__menu {
         padding-block: 0.5rem;
         .header__menu-link {
-            // zoom: 1.2;
-            position: relative;
             display: grid;
             place-content: center;
-
             width: rem-clamp(150, 180);
+
             border-radius: rem(10);
-            background-color: transparent;
-
-            &::after {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                inset: 0;
-                border-radius: rem(10);
-                border: 2px solid #ffffff60;
-                background-color: var(--color-dark-10);
-                pointer-events: none;
-            }
-
-            &.is-active {
-                background-color: #ffffff20;
-            }
+            font-size: 1.2rem;
 
             @include hover {
                 background-color: #ffffff20;
