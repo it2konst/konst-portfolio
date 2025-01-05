@@ -51,20 +51,22 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: rem-clamp(26, 32);
+        gap: 1.5rem; // 24px
         font-size: rem-clamp(18, 24);
     }
 
     .hero__title {
         position: relative;
-        border-radius: 2rem;
+
+        background-color: transparent;
+        color: #ffffffd0;
         hyphens: auto;
         word-wrap: break-word;
+
         // text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191,
         //     1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 2px rgba(16, 16, 16, 0.4),
         //     1px 10px 3px rgba(16, 16, 16, 0.2), 1px 12px 4px rgba(16, 16, 16, 0.2), 1px 14px 5px rgba(16, 16, 16, 0.4);
         text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1), 0px 12px 24px rgba(0, 0, 0, 0.1);
-        background-color: transparent;
 
         &::before {
             content: "✨";
@@ -77,15 +79,37 @@
             left: -0.4rem;
             bottom: -0.4rem;
             right: -0.4rem;
-            background-color: #f5f5f510;
+            background-color: #ffffff10;
             border-radius: 2rem;
             pointer-events: none;
         }
     }
 
     .hero__description {
+        background-color: transparent;
         hyphens: auto;
         word-wrap: break-word;
+
+        p {
+            position: relative;
+            color: #ffffffc0;
+
+            &::before {
+                content: "💎";
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -0.4rem;
+                left: -0.4rem;
+                bottom: -0.4rem;
+                right: -0.4rem;
+                background-color: #ffffff10;
+                border-radius: 2rem;
+                pointer-events: none;
+            }
+        }
     }
 
     .button.button--accent {

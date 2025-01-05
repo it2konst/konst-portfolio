@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import MainHero from "@/components/main/MainHero.vue";
+</script>
 
 <template>
     <MainHero />

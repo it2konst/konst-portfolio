@@ -19,7 +19,7 @@
 }
 
 .app__title-3d {
-    padding: 0rem 1rem 0.5rem 1rem;
+    padding: 0rem 1rem 0.4rem 1rem;
 
     text-transform: uppercase;
     font-weight: 500;
@@ -27,7 +27,6 @@
 
     border-radius: 2rem;
     background-color: #f5f5f5cc;
-    // opacity: 0.9;
 
     // text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191,
     //     1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191,
