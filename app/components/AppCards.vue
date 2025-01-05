@@ -93,28 +93,34 @@ const loadCards = async () => {
     flex-wrap: wrap;
     gap: rem-clamp(24, 48);
     justify-content: center;
+    max-width: 100%;
+    width: 100%;
+
+    a {
+        display: flex;
+        max-width: rem-clamp(300, 360);
+        width: 100%;
+
+        @include mobile-s {
+            max-width: 100%;
+        }
+    }
 
     &__item {
         position: relative;
         display: flex;
         flex-direction: column;
 
-        max-width: rem-clamp(300, 360);
+        // max-width: rem-clamp(300, 360);
         width: 100%;
         // height: max-content;
-
         // opacity: 0.55;
         opacity: 0.85;
-        // outline: var(--outline);
         border-radius: 1rem;
         overflow: hidden;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
             rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-
-        @include mobile-s {
-            max-width: 100%;
-        }
 
         @include hover {
             opacity: 0.95;
@@ -124,15 +130,12 @@ const loadCards = async () => {
 
     &__img-wrap {
         // z-index: 3;
-        max-width: rem-clamp(300, 360);
+        // max-width: rem-clamp(300, 360);
         width: 100%;
         aspect-ratio: 16 / 9;
-        // overflow: hidden;
+        overflow: hidden;
         // background-color: transparent;
-
-        @include mobile-s {
-            max-width: 100%;
-        }
+        background-color: #ffffff60;
 
         img {
             max-width: 100%;
@@ -169,24 +172,9 @@ const loadCards = async () => {
             // outline: var(--outline);
         }
 
-        &:before1 {
-            position: absolute;
-            content: "";
-            bottom: 99%;
-            left: -60%;
-            width: 0;
-            border-style: solid;
-            border-width: 10rem 0 0 18.75rem; // 80px 0 0 300px
-            border-color: transparent transparent transparent var(--color-dark);
-            // border-width: 3rem 0 0 18.75rem; // 48px 0 0 300px
-            pointer-events: none;
-            user-select: none;
-        }
-
         &:hover {
             .cards__description {
                 max-height: 10lh;
-                // transform: scale(1.04);
             }
         }
     }

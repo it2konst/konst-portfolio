@@ -119,6 +119,10 @@ onMounted(async () => {
 
         hyphens: auto;
         word-wrap: break-word;
+
+        @include mobile-s {
+            max-width: 100%;
+        }
     }
 
     .card-details__content {
@@ -128,6 +132,10 @@ onMounted(async () => {
         background-color: var(--color-dark);
         padding: 0.5rem 1rem 1rem 1rem;
         border-radius: 1rem;
+
+        @include mobile-s {
+            max-width: 100%;
+        }
     }
 
     .card-details__title {

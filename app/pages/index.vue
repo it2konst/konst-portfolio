@@ -1,9 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-    <section class="home container">
-        <MainHero />
-    </section>
+    <MainHero />
 </template>
 
 <style lang="scss">

@@ -41,6 +41,8 @@
     &__body {
         padding-block: 1.25rem; // 20px
         background-color: var(--color-dark-10);
+        background-color: #00000080;
+        // backdrop-filter: blur(0.2rem);
 
         @include mobile {
             padding-block: 0.75rem; // 12px

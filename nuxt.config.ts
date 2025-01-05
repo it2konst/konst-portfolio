@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
     compatibilityDate: "2024-12-27",
     future: { compatibilityVersion: 4 },
+    ssr: true,
     devtools: { enabled: true },
     routeRules: { "/": { prerender: true } },
     modules: ["@nuxt/image"],
