@@ -51,4 +51,9 @@ export const jsonData = {
             liveSite: "https://it2konst.github.io/site-portfolio",
         },
     ],
+    total: 4,
+    skip: 0,
+    limit: 10,
+    success: true,
+    error: "",
 };

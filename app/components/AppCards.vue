@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import SvgHeader from "../components/icons/SvgHeader.vue";
 import { ref, onMounted } from "vue";
+// import { type CardResponse } from "../../types/types";
+// import {type CardResponse} from "~/types/types.ts";
 
 interface Card {
     id: number;
@@ -45,6 +47,10 @@ const loadCards = async () => {
         isLoading.value = false;
     }
 };
+
+// const { data, error: err } = await useAsyncData("cards", () => $fetch("/api/cards"));
+// if (err.value) console.error(err.value);
+// const { data, error: err } = await useFetch("/api/cards");
 </script>
 
 <template>

@@ -1,64 +1,35 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { type ProCard } from "@/types";
+const { id } = useRoute().params;
 
-interface Card {
-    id: number;
-    title: string;
-    desc: string;
-    descLang: string;
-    dataDesc: string;
-    dataLang: string;
-    liveSite: string;
-    gitHub: string;
-    img: string;
-    imgAlt: string;
-    svgIcon: string;
+const { data, error } = await useFetch<ProCard>(`/api/cards/${id}`);
+if (error.value) {
+    throw createError({
+        statusCode: error.value?.statusCode,
+        statusMessage: error.value?.statusMessage,
+    });
 }
-
-const card = ref<Card | null>(null);
-const isLoading = ref(true);
-const error = ref<string | null>(null);
-
-// Получаем ID из маршрута
-const route = useRoute();
-const cardId = route.params.id;
-
-onMounted(async () => {
-    try {
-        // Загружаем карточку по ID
-        const response = await $fetch<Card>(`/api/cards/${cardId}`);
-        card.value = response;
-    } catch (err) {
-        error.value = "Failed to load card. Please try again later.";
-        console.error(err);
-    } finally {
-        isLoading.value = false;
-    }
-});
 </script>
 
 <template>
     <section class="card-id container">
-        <div v-if="isLoading">Loading...</div>
-        <div v-else-if="error">{{ error }}</div>
-        <div v-else-if="card" class="card-details">
+        <div class="card-details">
             <NuxtLink to="/portfolio" class="button button--accent">Go back to Portfolio</NuxtLink>
             <div class="card-details__img-wrap">
-                <NuxtImg :src="card.img" :alt="card.imgAlt" format="webp" draggable="false" />
+                <NuxtImg :src="data?.img" :alt="data?.imgAlt" format="webp" draggable="false" />
             </div>
-            <div class="card-details__desc" :lang="card.dataLang ?? 'en-En'">
-                <p>{{ card.dataDesc ?? "Description" }}</p>
+            <div class="card-details__desc" :lang="data?.dataLang ?? 'en-En'">
+                <p>{{ data?.dataDesc ?? "Description" }}</p>
             </div>
             <div class="card-details__content">
-                <h1 class="card-details__title">{{ card.title }}</h1>
-                <p class="card-details__description" v-html="card.desc"></p>
+                <h1 class="card-details__title">{{ data?.title }}</h1>
+                <p class="card-details__description" v-html="data?.desc"></p>
                 <div class="card-details__button-wrap">
-                    <a :href="card.gitHub" target="_blank" class="button button--accent">GitHub</a>
-                    <a :href="card.liveSite" target="_blank" class="button button--accent">Live Site</a>
+                    <a :href="data?.gitHub" target="_blank" class="button button--accent">GitHub</a>
+                    <a :href="data?.liveSite" target="_blank" class="button button--accent">Live Site</a>
                 </div>
             </div>
         </div>
-        <div v-else>Card not found</div>
     </section>
 </template>
 
