@@ -65,7 +65,7 @@ const loadCards = async () => {
             :key="card.id"
             :to="`/cards/${card.id}`"
             class="opacity-0"
-            v-animate="{ animation: 'animate__jackInTheBox' }"
+            v-animate="{ animation: 'animate__flipInX' }"
         >
             <figure class="cards__item">
                 <div

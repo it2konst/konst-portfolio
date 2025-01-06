@@ -1,4 +1,4 @@
-import { DirectiveBinding } from 'vue';
+import type { DirectiveBinding } from "vue";
 
 interface BindingValue {
     animation?: string;
@@ -11,14 +11,14 @@ interface AnimateClasses {
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
-    nuxtApp.vueApp.directive('animate', {
+    nuxtApp.vueApp.directive("animate", {
         mounted(el: HTMLElement, binding: DirectiveBinding<BindingValue>) {
-            const { animation = 'animate__fadeInUp', duration = 1000 } = binding.value;
+            const { animation = "animate__fadeInUp", duration = 1000 } = binding.value;
             const obj: AnimateClasses = {
-                baseAnimateClass: 'animate__animated',
-                opacityZeroClass: 'opacity-0',
+                baseAnimateClass: "animate__animated",
+                opacityZeroClass: "opacity-0",
             };
-            const animationClass = ref<string>('');
+            const animationClass = ref<string>("");
 
             const observer = new IntersectionObserver(
                 (entries: IntersectionObserverEntry[]) => {
@@ -34,7 +34,7 @@ export default defineNuxtPlugin((nuxtApp) => {
                         }
                     });
                 },
-                { threshold: 0.1 },
+                { threshold: 0.1 }
             );
 
             observer.observe(el);

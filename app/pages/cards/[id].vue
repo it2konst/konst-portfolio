@@ -13,7 +13,7 @@ if (error.value) {
 
 <template>
     <section class="card-id container">
-        <div class="card-details opacity-0" v-animate="{ animation: 'animate__flipInX' }">
+        <div class="card-details opacity-0" v-animate="{ animation: 'animate__jackInTheBox' }">
             <NuxtLink to="/portfolio" class="button button--accent">Go back to Portfolio</NuxtLink>
             <div class="card-details__img-wrap">
                 <NuxtImg :src="data?.img" :alt="data?.imgAlt" format="webp" draggable="false" />
@@ -55,7 +55,7 @@ if (error.value) {
     width: 100%;
 
     background-color: transparent;
-    opacity: 0.9;
+    // opacity: 0.9;
 
     .card-details__img-wrap {
         max-width: rem-clamp(300, 360);

@@ -4,10 +4,10 @@
     <section class="hero container" aria-labelledby="hero-title" lang="ru-Ru">
         <div class="hero__main">
             <div class="hero__body">
-                <h1 class="hero__title opacity-0" id="hero-title" v-animate="{ animation: 'animate__zoomInDown' }">
+                <h1 class="hero__title opacity-0" id="hero-title" v-animate="{ animation: 'animate__fadeInUp' }">
                     Создаю современные и функциональные веб-сайты, которые работают на результат.
                 </h1>
-                <div class="hero__description opacity-0" v-animate="{ animation: 'animate__pulse' }">
+                <div class="hero__description opacity-0" v-animate="{ animation: 'animate__slideInUp' }">
                     <p>
                         Я специализируюсь на разработке стильных, интуитивно понятных и технологичных веб-сайтов. Мои
                         инструменты — это чистая и структурированная верстка с использованием HTML и CSS, динамика и

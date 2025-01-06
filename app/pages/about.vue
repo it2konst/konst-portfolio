@@ -2,7 +2,7 @@
 
 <template>
     <section class="about container">
-        <h1 class="app__title-3d opacity-0" v-animate="{ animation: 'animate__flipInX' }">About</h1>
+        <h1 class="app__title-3d" v-animate="{ animation: 'animate__flipInX' }">About</h1>
     </section>
 </template>
 
