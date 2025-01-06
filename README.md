@@ -40,9 +40,9 @@
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 1. Клонируйте репозиторий:
-   ```bash
-   git clone https://github.com/it2konst/konst-portfolio.git
-   ```
+```bash
+git clone https://github.com/it2konst/konst-portfolio.git
+```
 2. Установите зависимости:
 ```bash
 npm install

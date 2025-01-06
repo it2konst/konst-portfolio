@@ -10,5 +10,6 @@ export default defineNuxtConfig({
         domains: ["https://konst-portfolio.vercel.app"],
         format: ["webp"],
     },
-    css: ["~/assets/scss/main.scss"],
+    css: ["~/assets/scss/main.scss", "~/assets/plugins/animate.min.css"],
+    plugins: ["~/assets/plugins/animate.ts"],
 });

@@ -2,7 +2,7 @@
 
 <template>
     <section class="portfolio container">
-        <h1 class="app__title-3d">Portfolio</h1>
+        <h1 class="app__title-3d opacity-0" v-animate="{ animation: 'animate__flipInX' }">Portfolio</h1>
         <AppCards />
     </section>
 </template>

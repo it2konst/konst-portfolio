@@ -60,7 +60,13 @@ const loadCards = async () => {
         <button class="button button--accent" @click="loadCards">Retry</button>
     </div>
     <section v-else class="cards">
-        <NuxtLink v-for="card in cards" :key="card.id" :to="`/cards/${card.id}`">
+        <NuxtLink
+            v-for="card in cards"
+            :key="card.id"
+            :to="`/cards/${card.id}`"
+            class="opacity-0"
+            v-animate="{ animation: 'animate__jackInTheBox' }"
+        >
             <figure class="cards__item">
                 <div
                     class="cards__img-wrap"
@@ -116,11 +122,8 @@ const loadCards = async () => {
         position: relative;
         display: flex;
         flex-direction: column;
-
-        // max-width: rem-clamp(300, 360);
         width: 100%;
         // height: max-content;
-        // opacity: 0.55;
         opacity: 0.85;
         border-radius: 1rem;
         overflow: hidden;
@@ -135,12 +138,9 @@ const loadCards = async () => {
     }
 
     &__img-wrap {
-        // z-index: 3;
-        // max-width: rem-clamp(300, 360);
         width: 100%;
         aspect-ratio: 16 / 9;
         overflow: hidden;
-        // background-color: transparent;
         background-color: #ffffff60;
 
         img {
@@ -171,7 +171,6 @@ const loadCards = async () => {
             width: 5rem;
             height: 3rem;
             border-radius: 0 100% 0 0;
-            // border-radius: 0 100% 100% 0;
             background-color: var(--color-dark);
             transform: translateY(-80%);
             pointer-events: none;
@@ -201,11 +200,6 @@ const loadCards = async () => {
         background-color: var(--color-dark);
         outline: var(--outline);
         pointer-events: none;
-
-        // > div {
-        //     transform: translate(0, 13%);
-        //     pointer-events: none;
-        // }
     }
 
     &__title {
@@ -295,7 +289,6 @@ const loadCards = async () => {
         z-index: 2;
 
         padding: 0.5rem 1rem;
-        // background-color: transparent;
         background-color: #00000060;
         pointer-events: none;
 
