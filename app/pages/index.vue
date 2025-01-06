@@ -9,13 +9,13 @@ useSeoMeta({
     ogTitle: "Portfolio Hub | Modern Web Development Projects",
     ogDescription:
         "Explore my portfolio showcasing modern web development projects built with Vue 3, Nuxt 3, TypeScript, and Tailwind CSS.",
-    ogImage: "/images/opengraph.jpg",
+    ogImage: "https://konst-portfolio.vercel.app/images/opengraph.jpg",
     ogUrl: "https://konst-portfolio.vercel.app",
     // Twitter Card
     twitterTitle: "Portfolio Hub | Modern Web Development Projects",
     twitterDescription:
         "Explore my portfolio showcasing modern web development projects built with Vue 3, Nuxt 3, TypeScript, and Tailwind CSS.",
-    twitterImage: "/images/opengraph.jpg",
+    twitterImage: "https://konst-portfolio.vercel.app/images/opengraph.jpg",
     twitterCard: "summary",
 });
 </script>
