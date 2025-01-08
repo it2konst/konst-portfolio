@@ -20,9 +20,18 @@
 </template>
 
 <style lang="scss" scoped>
+@use "~/assets/scss/helpers/index" as *;
+// style switch
+
 .switch {
     position: relative;
-    padding: 0 1rem;
+    margin: 0rem 0rem 0rem 1rem;
+    // padding: rem(14) rem(24);
+
+    @include mobile {
+        // padding: rem(10) rem(18);
+        margin: 0.6rem 0rem 0rem 0rem;
+    }
 }
 
 input {
