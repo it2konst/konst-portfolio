@@ -1,6 +1,35 @@
 @use "helpers" as *;
 
 :root {
+    --bg-color: #086ca2;
+    --bg-image: url("/images/app-bg.webp");
+    --bg-image-1024: url("/images/app-bg-1024.webp");
+
+    --text-color: #7e7e81;
+    --color-accent: #ff8b00;
+
+    --indicate: #e6e6e6;
+    --bg-indicate: #48484a;
+    --left-position: 5px;
+    --rotate-angle: 0deg;
+}
+
+:root[data-theme="dark"] {
+    --bg-color: #141414;
+    --bg-image: url("/images/app-bg-dark.webp");
+    --bg-image-1024: url("/images/app-bg-dark-1024.webp");
+
+    --text-color: #7e7e81;
+    --color-accent: #ffd11a;
+
+    // --background-color: #100e1c; /* Цвет фона для тёмной темы */
+    // --text-color: #e6e6e6; /* Цвет текста для тёмной темы */
+    --bg-indicate: #ec6e4d; /* Цвет индикатора для тёмной темы */
+    --left-position: 35px; /* Положение индикатора для тёмной темы */
+    --rotate-angle: 360deg; /* Угол индикатора для тёмной темы */
+}
+
+:root {
     --color-light: #ffffff;
 
     --color-dark: #141414;
@@ -12,14 +41,10 @@
     --color-gray-50: #7e7e81;
     --color-gray-60: #98989a;
 
-    --color-accent: #ffd11a;
+    // --color-accent: #ffd11a;
     --color-red: #ff5500;
 
-    --gradient: linear-gradient(
-        45deg,
-        var(--color-dark-15) 64%,
-        var(--color-accent) 136%
-    );
+    --gradient: linear-gradient(45deg, var(--color-dark-15) 64%, var(--color-accent) 136%);
 
     --border: #{rem(1)} solid var(--color-dark-15);
     --outline: #{rem(2)} solid #2980b960;

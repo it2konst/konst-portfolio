@@ -42,14 +42,14 @@
         position: absolute;
         inset: 0;
         background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.5) 100%),
-            url("/images/app-bg.webp");
+            var(--bg-image);
         background-repeat: no-repeat repeat;
         background-size: cover;
         background-position: center;
 
         @include tablet {
             background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.5) 100%),
-                url("/images/app-bg-1024.webp");
+                var(--bg-image-1024);
         }
     }
 }

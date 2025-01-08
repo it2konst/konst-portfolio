@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import DarkMode from "@/components/block/DarkMode.vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -55,6 +56,9 @@ const menuItems: MenuItem[] = [
                                 >
                                     {{ item.label }}
                                 </NuxtLink>
+                            </li>
+                            <li class="header__menu-item">
+                                <DarkMode />
                             </li>
                         </ul>
                     </nav>

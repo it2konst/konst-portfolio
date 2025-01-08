@@ -11,5 +11,5 @@ export default defineNuxtConfig({
         format: ["webp"],
     },
     css: ["~/assets/scss/main.scss", "~/assets/plugins/animate.min.css"],
-    plugins: ["~/assets/plugins/animate.ts"],
+    plugins: ["~/assets/plugins/animate.ts", "~/assets/plugins/dark-mode.ts"],
 });
