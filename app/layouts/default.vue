@@ -1,7 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppBgAnimation from "~/components/AppBgAnimation.vue";
+</script>
 
 <template>
-    <AppBg />
+    <!-- <AppBg /> -->
+    <AppBgAnimation />
     <AppHeader />
     <main>
         <slot />
