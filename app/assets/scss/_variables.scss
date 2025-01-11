@@ -3,11 +3,9 @@
 :root {
     // --bg-color: #086ca2;
     --bg-color: #235b79;
-    --bg-image: url("/images/app-bg.webp");
-    --bg-image-1024: url("/images/app-bg-1024.webp");
-
-    --text-color: #7e7e81;
-    // --color-accent: #ff8b00;
+    --text-color: #000;
+    // --bg-image: url("/images/app-bg.webp");
+    // --bg-image-1024: url("/images/app-bg-1024.webp");
     --color-accent: #bf7e30;
 
     --indicate: #e6e6e6;
@@ -18,9 +16,9 @@
 
 :root[data-theme="dark"] {
     --bg-color: #141414;
-    --bg-image: url("/images/app-bg-dark.webp");
-    --bg-image-1024: url("/images/app-bg-dark-1024.webp");
-
+    --text-color: #7e7e81;
+    // --bg-image: url("/images/app-bg-dark.webp");
+    // --bg-image-1024: url("/images/app-bg-dark-1024.webp");
     --text-color: #7e7e81;
     --color-accent: #ffd11a;
 

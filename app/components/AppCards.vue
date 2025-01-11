@@ -99,6 +99,10 @@ const loadCards = async () => {
 @use "~/assets/scss/helpers/index" as *;
 // style cards
 
+[v-cloak] {
+    display: none;
+}
+
 .cards {
     position: relative;
     display: flex;
