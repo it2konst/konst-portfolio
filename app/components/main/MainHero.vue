@@ -34,8 +34,6 @@
 
 .hero {
     padding-block: rem-clamp(20, 40);
-    // zoom: 0.9;
-    // opacity: 0.75;
     opacity: 0.9;
 
     .hero__main {
@@ -43,7 +41,7 @@
         border-radius: 2rem;
         outline: var(--border);
         background-color: #00000080;
-        // background-color: var(--color-dark-10);
+        // background-color: var(--bg-color);
         // backdrop-filter: blur(0.2rem);
     }
 
@@ -59,6 +57,7 @@
         position: relative;
 
         background-color: transparent;
+        // color: var(--text-color);
         color: #ffffffd0;
         hyphens: auto;
         word-wrap: break-word;
@@ -93,6 +92,7 @@
         p {
             position: relative;
             color: #ffffffc0;
+            // color: var(--text-color);
 
             &::before {
                 content: "💎";
