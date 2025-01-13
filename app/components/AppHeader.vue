@@ -29,59 +29,48 @@ const menuItems: MenuItem[] = [
 
 <template>
     <header class="header">
-        <div class="header__body">
-            <div class="header__body-inner container">
-                <a class="header__logo logo" href="/" aria-label="Home" title="Home" draggable="false">
-                    <img
-                        class="logo__image"
-                        src="/images/logo.svg"
-                        alt=""
-                        width="50"
-                        height="50"
-                        loading="lazy"
-                        draggable="false"
-                    />
-                    <p class="h4">KonstBerg</p>
-                </a>
-                <div class="header__overlay" :class="{ 'is-active': isBurger }" @click="closeMenu">
-                    <nav class="header__menu">
-                        <ul class="header__menu-list">
-                            <li class="header__menu-item" v-for="(item, index) in menuItems" :key="index">
-                                <NuxtLink
-                                    :to="item.path"
-                                    class="header__menu-link"
-                                    :class="{
-                                        'is-active': item.path === appRouter.currentRoute.value.fullPath,
-                                    }"
-                                >
-                                    {{ item.label }}
-                                </NuxtLink>
-                            </li>
-                            <li class="header__menu-item">
-                                <DarkMode />
-                            </li>
-                        </ul>
-                    </nav>
-                    <NuxtLink
-                        to="https://github.com/it2konst"
-                        target="_blank"
-                        class="header__contact-us-link button button--accent"
-                        >My GitHub</NuxtLink
-                    >
-                </div>
-                <button
-                    class="header__burger-button burger-button visible-mobile"
-                    :class="{ 'is-active': isBurger }"
-                    @click="toggleBurger"
-                    type="button"
-                    aria-label="Open menu"
-                    title="Open menu"
-                >
-                    <span class="burger-button__line"></span>
-                    <span class="burger-button__line"></span>
-                    <span class="burger-button__line"></span>
-                </button>
+        <div class="container">
+            <NuxtLink class="header__logo" to="/" aria-label="Home" title="Home" draggable="false">
+                <img class="logo__image" src="/images/logo.svg" alt="" width="50" height="50" draggable="false" />
+                <p class="h4">KonstBerg</p>
+            </NuxtLink>
+            <div class="header__overlay" :class="{ 'is-active': isBurger }" @click="closeMenu">
+                <nav class="header__menu">
+                    <ul class="header__menu-list">
+                        <li class="header__menu-item" v-for="(item, index) in menuItems" :key="index">
+                            <NuxtLink
+                                :to="item.path"
+                                class="header__menu-link"
+                                :class="{
+                                    'is-active': item.path === appRouter.currentRoute.value.fullPath,
+                                }"
+                            >
+                                {{ item.label }}
+                            </NuxtLink>
+                        </li>
+                        <li class="header__menu-item">
+                            <DarkMode />
+                        </li>
+                    </ul>
+                </nav>
             </div>
+
+            <NuxtLink to="https://github.com/it2konst" target="_blank" class="header__contact button button--accent"
+                >My GitHub
+            </NuxtLink>
+
+            <button
+                class="header__burger-button burger-button"
+                :class="{ 'is-active': isBurger }"
+                @click="toggleBurger"
+                type="button"
+                aria-label="Open menu"
+                title="Open menu"
+            >
+                <span class="burger-button__line"></span>
+                <span class="burger-button__line"></span>
+                <span class="burger-button__line"></span>
+            </button>
         </div>
     </header>
 </template>
@@ -90,60 +79,139 @@ const menuItems: MenuItem[] = [
 @use "~/assets/scss/helpers/index" as *;
 // style Header
 
-.header__body {
+.header {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+
+    max-width: 100%;
+    width: 100%;
+
     opacity: 0.9;
+    background-color: var(--color-bg);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
         rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    // border-radius: 0rem 0rem 2rem 2rem;
 
-    .header__logo {
+    animation-name: scrolling-header;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: rem(100) rem(200);
+
+    @include mobile {
+        opacity: 1;
+    }
+
+    @keyframes scrolling-header {
+        to {
+            box-shadow: 0 0 1rem 0 var(--color-light-second);
+        }
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1rem 1rem 1rem;
+    }
+
+    &__logo {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+
+        max-width: rem-clamp(179, 126);
+        width: 100%;
     }
 
-    .button--accent {
-        width: rem-clamp(150, 180);
-    }
+    &__overlay {
+        // &.is-active {
+        //     .header__menu-item {
+        //         background-color: #ffffff50;
+        //     }
+        // }
 
-    .header__menu-link {
-        font-size: rem-clamp(16, 20);
-    }
+        @include mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
 
-    .header__overlay.is-active .header__menu {
-        padding-block: 0.5rem;
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 50%;
-            border-radius: 2rem;
-            background-color: #ffffff10;
-
-            // background-color: transparent;
-            outline: var(--outline);
-            pointer-events: none;
-            // filter: blur(0.1rem);
-        }
-        .header__menu-link {
             display: grid;
-            place-content: center;
-            width: rem-clamp(150, 180);
+            place-items: center;
 
-            border-radius: rem(10);
-            font-size: 1.4rem;
+            background-color: var(--color-bg-transparent);
+            transition-duration: var(--transition-duration);
+
+            &:not(.is-active) {
+                @include hide;
+                translate: 100%;
+            }
+        }
+    }
+
+    &__menu {
+        @include mobile {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    &__menu-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        @include mobile {
+            flex-direction: column;
+            padding-block: 2rem;
+            width: 100%;
+            max-width: 80%;
+            gap: 2rem;
+
+            outline: var(--outline-theme);
+            border-radius: 1rem;
+
+            background-color: var(--color-bg);
+        }
+    }
+
+    &__menu-item {
+        a {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            color: var(--color-text);
+            outline: rem(2) solid transparent;
+
+            font-family: var(--font-family-base);
+            font-size: rem-clamp(18, 24);
+            letter-spacing: -0.03em;
+
+            transition: outline 0.3s ease-in;
+
+            // background-color: #ffffff10;
+            // width: 10rem;
 
             &.is-active {
-                outline: var(--outline);
+                outline: var(--outline-theme);
             }
+        }
+    }
 
-            @include hover {
-                background-color: #ffffff20;
-            }
+    &__burger-button {
+        display: none;
+
+        @include mobile {
+            display: inline-flex;
+        }
+    }
+
+    &__contact {
+        @include mobile {
+            display: none;
         }
     }
 }

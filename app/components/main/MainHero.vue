@@ -41,9 +41,9 @@
     .hero__main {
         padding: rem-clamp(20, 40);
         border-radius: 2rem;
-        outline: var(--border);
-        background-color: #00000080;
-        // background-color: var(--color-dark-10);
+        outline: var(--outline-theme);
+        // $color-bg: #ffffff;
+        background-color: var(--color-bg-transparent);
         // backdrop-filter: blur(0.2rem);
     }
 
@@ -59,7 +59,7 @@
         position: relative;
 
         background-color: transparent;
-        color: #ffffffd0;
+        color: var(--color-text);
         hyphens: auto;
         word-wrap: break-word;
 
@@ -79,7 +79,7 @@
             left: -0.4rem;
             bottom: -0.4rem;
             right: -0.4rem;
-            background-color: #ffffff10;
+            background-color: #00000010;
             border-radius: 2rem;
             pointer-events: none;
         }
@@ -92,7 +92,7 @@
 
         p {
             position: relative;
-            color: #ffffffc0;
+            color: var(--color-text-transparent);
 
             &::before {
                 content: "💎";
@@ -105,7 +105,7 @@
                 left: -0.4rem;
                 bottom: -0.4rem;
                 right: -0.4rem;
-                background-color: #ffffff10;
+                background-color: #00000010;
                 border-radius: 2rem;
                 pointer-events: none;
             }

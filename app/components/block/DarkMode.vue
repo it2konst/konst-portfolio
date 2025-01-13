@@ -25,13 +25,13 @@
 
 .switch {
     position: relative;
-    margin: 0rem 0rem 0rem 1rem;
+    // margin: 0rem 0rem 0rem 1rem;
     // padding: rem(14) rem(24);
 
-    @include mobile {
-        // padding: rem(10) rem(18);
-        margin: 0.6rem 0rem 0rem 0rem;
-    }
+    // @include mobile {
+    //     // padding: rem(10) rem(18);
+    //     margin: 0.6rem 0rem 0rem 0rem;
+    // }
 }
 
 input {
@@ -43,7 +43,8 @@ label {
     position: relative;
     width: 64px;
     height: 32px;
-    border: 2px solid #acacac;
+    // border: 2px solid #acacac;
+    outline: var(--outline-theme);
     border-radius: 20px;
     box-sizing: border-box;
     cursor: pointer;

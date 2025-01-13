@@ -1,13 +1,28 @@
 @use "helpers" as *;
 
+$color-bg: #99b3c6;
+
 :root {
-    // --bg-color: #086ca2;
+    --color-bg: #99b3c6;
+    --color-bg-transparent: #99b3c680;
+    --color-bg-accent: #d3d7e7;
+    --color-text: #221831;
+    --color-text-transparent: #221831c0;
+    --color-text-accent: #465779;
+
+    --color-dark-first: #221831;
+    --color-dark-second: #465779;
+    --color-light-first: #99b3c6;
+    --color-light-second: #d3d7e7;
+
+    --theme-accent: #bf7e30;
+    --theme-accent-hover: #ff5500;
+
     --bg-color: #235b79;
     --bg-image: url("/images/app-bg.webp");
     --bg-image-1024: url("/images/app-bg-1024.webp");
 
     --text-color: #7e7e81;
-    // --color-accent: #ff8b00;
     --color-accent: #bf7e30;
 
     --indicate: #e6e6e6;
@@ -17,6 +32,26 @@
 }
 
 :root[data-theme="dark"] {
+    --color-bg: #223f5c;
+    --color-bg-transparent: #223f5c80;
+    --color-bg-accent: #e08f2c;
+    --color-text: #dddddc;
+    --color-text-transparent: #dddddcc0;
+    --color-text-accent: #ea8d89;
+
+    --color-dark-first: #dddddc;
+    --color-dark-second: #e08f2c;
+    --color-light-first: #223f5c;
+    --color-light-second: #e08f2c;
+    --theme-border: #e08f2c;
+
+    --theme-first-color: #121212;
+    --theme-second-color: #1e1e1e;
+    --theme-text-color: #e0e0e0;
+    --theme-accent: #ffd11a;
+    --theme-accent-hover: #ff5500;
+    // --theme-border: #333333;
+
     --bg-color: #141414;
     --bg-image: url("/images/app-bg-dark.webp");
     --bg-image-1024: url("/images/app-bg-dark-1024.webp");
@@ -50,7 +85,7 @@
 
     --border: #{rem(1)} solid var(--color-dark-15);
     --outline: #{rem(2)} solid #2980b960;
-
+    --outline-theme: #{rem(2)} solid var(--color-bg-accent);
     --shadow: 0 0 0 #{rem(3)} #191919;
 
     --font-family-base: "Inter", sans-serif;
