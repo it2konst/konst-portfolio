@@ -3,6 +3,7 @@
 <template>
     <section class="about container">
         <h1 class="app__title-3d" v-animate="{ animation: 'animate__flipInX' }">About</h1>
+        <p>Under construction</p>
     </section>
 </template>
 
