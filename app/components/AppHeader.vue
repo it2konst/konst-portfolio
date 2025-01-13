@@ -31,7 +31,7 @@ const menuItems: MenuItem[] = [
     <header class="header">
         <div class="container">
             <NuxtLink class="header__logo" to="/" aria-label="Home" title="Home" draggable="false">
-                <img class="logo__image" src="/images/logo.svg" alt="" width="50" height="50" draggable="false" />
+                <img class="logo__image" src="/images/logo.svg" alt="" draggable="false" />
                 <p class="h4">KonstBerg</p>
             </NuxtLink>
             <div class="header__overlay" :class="{ 'is-active': isBurger }" @click="closeMenu">
@@ -55,9 +55,9 @@ const menuItems: MenuItem[] = [
                 </nav>
             </div>
 
-            <NuxtLink to="https://github.com/it2konst" target="_blank" class="header__contact button button--accent"
-                >My GitHub
-            </NuxtLink>
+            <div class="header__contact" v-show="!isBurger">
+                <NuxtLink to="https://github.com/it2konst" target="_blank" class="button">Main GitHub </NuxtLink>
+            </div>
 
             <button
                 class="header__burger-button burger-button"
@@ -88,7 +88,7 @@ const menuItems: MenuItem[] = [
     width: 100%;
 
     opacity: 0.9;
-    background-color: var(--color-bg);
+    background-color: var(--color-bg1);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
         rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
@@ -103,7 +103,7 @@ const menuItems: MenuItem[] = [
 
     @keyframes scrolling-header {
         to {
-            box-shadow: 0 0 1rem 0 var(--color-light-second);
+            box-shadow: 0 0 1rem 0 var(--color-bg2);
         }
     }
 
@@ -118,17 +118,19 @@ const menuItems: MenuItem[] = [
         display: flex;
         align-items: center;
         gap: 0.5rem;
-
-        max-width: rem-clamp(179, 126);
-        width: 100%;
+        // max-width: rem-clamp(130, 204);
+        // width: 100%;
+        img {
+            display: block;
+            max-width: rem-clamp(34, 50);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
     }
 
     &__overlay {
-        // &.is-active {
-        //     .header__menu-item {
-        //         background-color: #ffffff50;
-        //     }
-        // }
+        position: relative;
 
         @include mobile {
             position: fixed;
@@ -140,12 +142,18 @@ const menuItems: MenuItem[] = [
             display: grid;
             place-items: center;
 
-            background-color: var(--color-bg-transparent);
+            background-color: rgba(var(--color-bg1-rgb), 0.2);
             transition-duration: var(--transition-duration);
+
+            // background-color: var(--color-accent);
 
             &:not(.is-active) {
                 @include hide;
                 translate: 100%;
+
+                ~ .header__contact {
+                    display: none;
+                }
             }
         }
     }
@@ -175,15 +183,30 @@ const menuItems: MenuItem[] = [
             outline: var(--outline-theme);
             border-radius: 1rem;
 
-            background-color: var(--color-bg);
+            background-color: var(--color-bg1);
         }
     }
 
     &__menu-item {
+        border-radius: 0.5rem;
+
+        display: grid;
+        place-items: center;
+        @include mobile {
+            max-width: 12.5rem; // 200px
+            width: 100%;
+        }
         a {
-            padding: 0.5rem 1rem;
+            display: grid;
+            place-items: center;
+
             border-radius: 0.5rem;
-            color: var(--color-text);
+            padding: 0.5rem 1rem;
+            height: 100%;
+            width: 100%;
+            // border-radius: 0.5rem;
+
+            color: var(--color-text1);
             outline: rem(2) solid transparent;
 
             font-family: var(--font-family-base);
@@ -198,6 +221,11 @@ const menuItems: MenuItem[] = [
             &.is-active {
                 outline: var(--outline-theme);
             }
+
+            @include hover {
+                // outline: var(--outline-theme);
+                background-color: var(--color-bg2);
+            }
         }
     }
 
@@ -210,9 +238,15 @@ const menuItems: MenuItem[] = [
     }
 
     &__contact {
-        @include mobile {
-            display: none;
-        }
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        // @include mobile {
+        //     .button {
+        //         display: none;
+        //     }
+        // }
     }
 }
 </style>

@@ -3,28 +3,22 @@
 $color-bg: #99b3c6;
 
 :root {
-    --color-bg: #99b3c6;
-    --color-bg-transparent: #99b3c680;
-    --color-bg-accent: #d3d7e7;
-    --color-text: #221831;
-    --color-text-transparent: #221831c0;
-    --color-text-accent: #465779;
+    --color-text1: #4d3f72;
+    --color-text1-rgb: 77, 63, 114;
 
-    --color-dark-first: #221831;
-    --color-dark-second: #465779;
-    --color-light-first: #99b3c6;
-    --color-light-second: #d3d7e7;
+    --color-text2: #8a7c9c;
+    --color-text2-rgb: 138, 124, 156;
 
-    --theme-accent: #bf7e30;
-    --theme-accent-hover: #ff5500;
+    --color-bg1: #c5c0c9;
+    --color-bg1-rgb: 197, 192, 201;
 
-    --bg-color: #235b79;
-    --bg-image: url("/images/app-bg.webp");
-    --bg-image-1024: url("/images/app-bg-1024.webp");
+    --color-bg2: #dfe0e5;
+    --color-bg2-rgb: 223, 224, 229;
 
-    --text-color: #7e7e81;
-    --color-accent: #bf7e30;
+    --color-accent: var(--color-text1);
+    --color-accent-text: var(--color-bg1);
 
+    //--- ---
     --indicate: #e6e6e6;
     --bg-indicate: #48484a;
     --left-position: 5px;
@@ -32,37 +26,25 @@ $color-bg: #99b3c6;
 }
 
 :root[data-theme="dark"] {
-    --color-bg: #223f5c;
-    --color-bg-transparent: #223f5c80;
-    --color-bg-accent: #e08f2c;
-    --color-text: #dddddc;
-    --color-text-transparent: #dddddcc0;
-    --color-text-accent: #ea8d89;
+    --color-bg1: #221831;
+    --color-bg1-rgb: 34, 24, 49;
 
-    --color-dark-first: #dddddc;
-    --color-dark-second: #e08f2c;
-    --color-light-first: #223f5c;
-    --color-light-second: #e08f2c;
-    --theme-border: #e08f2c;
+    --color-bg2: #465779;
+    --color-bg2-rgb: 70, 87, 121;
 
-    --theme-first-color: #121212;
-    --theme-second-color: #1e1e1e;
-    --theme-text-color: #e0e0e0;
-    --theme-accent: #ffd11a;
-    --theme-accent-hover: #ff5500;
-    // --theme-border: #333333;
+    --color-text1: #99b3c6;
+    --color-text1-rgb: 153, 179, 198;
 
-    --bg-color: #141414;
-    --text-color: #7e7e81;
-    // --bg-image: url("/images/app-bg-dark.webp");
-    // --bg-image-1024: url("/images/app-bg-dark-1024.webp");
-    --color-accent: #ffd11a;
+    --color-text2: #d3d7e7;
+    --color-text2-rgb: 211, 215, 231;
 
-    // --background-color: #100e1c; /* Цвет фона для тёмной темы */
-    // --text-color: #e6e6e6; /* Цвет текста для тёмной темы */
-    --bg-indicate: #ec6e4d; /* Цвет индикатора для тёмной темы */
-    --left-position: 35px; /* Положение индикатора для тёмной темы */
-    --rotate-angle: 360deg; /* Угол индикатора для тёмной темы */
+    --color-accent: var(--color-text1);
+    --color-accent2: var(--color-bg1);
+
+    //--- ---
+    --bg-indicate: #ec6e4d;
+    --left-position: 35px;
+    --rotate-angle: 360deg;
 }
 
 :root {
@@ -84,7 +66,7 @@ $color-bg: #99b3c6;
 
     --border: #{rem(1)} solid var(--color-dark-15);
     --outline: #{rem(2)} solid #2980b960;
-    --outline-theme: #{rem(2)} solid var(--color-bg-accent);
+    --outline-theme: #{rem(2)} solid var(--color-text1);
     --shadow: 0 0 0 #{rem(3)} #191919;
 
     --font-family-base: "Inter", sans-serif;

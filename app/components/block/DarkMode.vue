@@ -25,6 +25,7 @@
 
 .switch {
     position: relative;
+    padding: 0rem 1rem;
     // margin: 0rem 0rem 0rem 1rem;
     // padding: rem(14) rem(24);
 

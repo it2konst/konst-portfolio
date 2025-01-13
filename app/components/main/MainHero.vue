@@ -40,8 +40,7 @@
         padding: rem-clamp(20, 40);
         border-radius: 2rem;
         outline: var(--border);
-        background-color: #00000080;
-        // background-color: var(--color-dark-10);
+        background-color: rgba(var(--color-bg-rgb), 0.2);
         // backdrop-filter: blur(0.2rem);
     }
 

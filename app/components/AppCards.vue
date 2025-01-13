@@ -87,7 +87,7 @@ const loadCards = async () => {
                     ></p>
                     <div class="cards__button-wrap" @click.stop>
                         <a :href="card.gitHub ?? '#'" target="_blank" class="button button--accent">GitHub</a>
-                        <a :href="card.liveSite ?? '#'" target="_blank" class="button button--accent">Live Site</a>
+                        <a :href="card.liveSite ?? '#'" target="_blank" class="button button--accent">Visit Site</a>
                     </div>
                 </figcaption>
             </figure>

@@ -11,15 +11,14 @@ html {
 
 body {
     display: flex;
-
     flex-direction: column;
+
     font-family: var(--font-family-base);
     font-size: rem-clamp(14, 18);
     letter-spacing: -0.03em;
-    // color: var(--color-gray-50);
-    // background-color: var(--bg-color);
-    background-color: var(--color-bg);
-    color: var(--color-text);
+
+    background-color: #221831;
+    color: var(--color-text2);
 }
 
 main {
@@ -119,7 +118,7 @@ a {
 }
 
 :focus-visible {
-    outline: rem(2) dashed var(--color-light);
+    outline: rem(2) dashed var(--color-accent);
     outline-offset: rem(4);
     transition-duration: 0s !important;
 }
