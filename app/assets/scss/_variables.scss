@@ -3,20 +3,26 @@
 $color-bg: #99b3c6;
 
 :root {
-    --color-text1: #4d3f72;
-    --color-text1-rgb: 77, 63, 114;
+    --primary-dark: #221831;
+    --secondary-dark: #465779;
 
-    --color-text2: #8a7c9c;
-    --color-text2-rgb: 138, 124, 156;
+    --primary-light: #99b3c6;
+    --secondary-light: #d3d7e7;
 
-    --color-bg1: #c5c0c9;
-    --color-bg1-rgb: 197, 192, 201;
+    --color-bg1: #221831;
+    --color-bg1-rgb: 34, 24, 49;
 
-    --color-bg2: #dfe0e5;
-    --color-bg2-rgb: 223, 224, 229;
+    --color-bg2: #465779;
+    --color-bg2-rgb: 70, 87, 121;
+
+    --color-text1: #99b3c6;
+    --color-text1-rgb: 153, 179, 198;
+
+    --color-text2: #d3d7e7;
+    --color-text2-rgb: 211, 215, 231;
 
     --color-accent: var(--color-text1);
-    --color-accent-text: var(--color-bg1);
+    --color-accent2: var(--color-bg1);
 
     //--- ---
     --indicate: #e6e6e6;
@@ -26,6 +32,12 @@ $color-bg: #99b3c6;
 }
 
 :root[data-theme="dark"] {
+    --primary-dark: #221831;
+    --secondary-dark: #465779;
+
+    --primary-light: #99b3c6;
+    --secondary-light: #d3d7e7;
+
     --color-bg1: #221831;
     --color-bg1-rgb: 34, 24, 49;
 
