@@ -6,10 +6,10 @@
     padding: rem-clamp(6, 10) rem-clamp(12, 16);
 
     font-size: rem-clamp(16, 20);
-    color: var(--color-accent2);
+    color: var(--primary);
     white-space: nowrap;
 
-    background-color: var(--color-accent);
+    background-color: var(--secondary);
     border-radius: rem(12);
 
     transition: color 0.2s ease-in, background-color 0.2s ease-in, outline 0.2s ease-in, outline-offset 0.2s ease-in;
@@ -19,9 +19,9 @@
     }
 
     @include hover {
-        color: var(--color-text1);
-        background-color: var(--color-bg1);
-        outline: 2px solid var(--color-text1);
+        color: var(--secondary);
+        background-color: var(--primary);
+        outline: 2px solid var(--secondary);
         outline-offset: 2px;
     }
 }

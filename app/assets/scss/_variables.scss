@@ -3,10 +3,15 @@
 $color-bg: #99b3c6;
 
 :root {
-    --primary-dark: #221831;
-    --secondary-dark: #465779;
+    //--- zinc-800 --- neutral-900
+    //--- slate-600 ---
+    //--- slate-400 --- yellow-400
+    //--- slate-300 ---
 
-    --primary-light: #99b3c6;
+    --primary: #221831;
+    --primary-light: #465779;
+
+    --secondary: #99b3c6;
     --secondary-light: #d3d7e7;
 
     --color-bg1: #221831;
@@ -32,11 +37,13 @@ $color-bg: #99b3c6;
 }
 
 :root[data-theme="dark"] {
-    --primary-dark: #221831;
-    --secondary-dark: #465779;
+    --primary: #141414;
+    --primary-light: #535353;
 
-    --primary-light: #99b3c6;
-    --secondary-light: #d3d7e7;
+    --secondary: #ffd11a;
+    --secondary-light: #ffdb5f;
+
+    --accent: #ffd11a;
 
     --color-bg1: #221831;
     --color-bg1-rgb: 34, 24, 49;
@@ -50,7 +57,7 @@ $color-bg: #99b3c6;
     --color-text2: #d3d7e7;
     --color-text2-rgb: 211, 215, 231;
 
-    --color-accent: var(--color-text1);
+    --color-accent: var(--accent);
     --color-accent2: var(--color-bg1);
 
     //--- ---
@@ -78,7 +85,7 @@ $color-bg: #99b3c6;
 
     --border: #{rem(1)} solid var(--color-dark-15);
     --outline: #{rem(2)} solid #2980b960;
-    --outline-theme: #{rem(2)} solid var(--color-text1);
+    --outline-theme: #{rem(2)} solid var(--primary-light);
     --shadow: 0 0 0 #{rem(3)} #191919;
 
     --font-family-base: "Inter", sans-serif;

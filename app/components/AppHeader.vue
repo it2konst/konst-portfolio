@@ -88,7 +88,7 @@ const menuItems: MenuItem[] = [
     width: 100%;
 
     opacity: 0.9;
-    background-color: var(--color-bg1);
+    background-color: var(--primary);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
         rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
@@ -103,7 +103,7 @@ const menuItems: MenuItem[] = [
 
     @keyframes scrolling-header {
         to {
-            box-shadow: 0 0 1rem 0 var(--color-bg2);
+            box-shadow: 0 0 1rem 0 var(--primary-light);
         }
     }
 
@@ -142,14 +142,13 @@ const menuItems: MenuItem[] = [
             display: grid;
             place-items: center;
 
-            background-color: rgba(var(--color-bg1-rgb), 0.2);
+            background-color: transparent;
+            backdrop-filter: blur(3px);
             transition-duration: var(--transition-duration);
-
-            // background-color: var(--color-accent);
 
             &:not(.is-active) {
                 @include hide;
-                translate: 100%;
+                transform: translate(-100%, 0%);
 
                 ~ .header__contact {
                     display: none;
