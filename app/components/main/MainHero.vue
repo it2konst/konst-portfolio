@@ -39,9 +39,9 @@
     .hero__main {
         padding: rem-clamp(20, 40);
         border-radius: 2rem;
-        outline: var(--border);
-        background-color: rgba(var(--color-bg-rgb), 0.2);
-        // backdrop-filter: blur(0.2rem);
+        outline: var(--outline-theme);
+        // background-color: rgba(var(--color-bg-rgb), 0.2);
+        background-color: #00000040;
     }
 
     .hero__body {
@@ -56,7 +56,7 @@
         position: relative;
 
         background-color: transparent;
-        color: #ffffffd0;
+        color: var(--text-primary);
         hyphens: auto;
         word-wrap: break-word;
 
@@ -72,11 +72,12 @@
         &::after {
             content: "";
             position: absolute;
+            z-index: -1;
             top: -0.4rem;
             left: -0.4rem;
             bottom: -0.4rem;
             right: -0.4rem;
-            background-color: #00000010;
+            background-color: var(--primary);
             border-radius: 2rem;
             pointer-events: none;
         }
@@ -84,12 +85,12 @@
 
     .hero__description {
         background-color: transparent;
+        color: var(--text-primary-light);
         hyphens: auto;
         word-wrap: break-word;
 
         p {
             position: relative;
-            color: #ffffffc0;
 
             &::before {
                 content: "💎";
@@ -98,11 +99,12 @@
             &::after {
                 content: "";
                 position: absolute;
+                z-index: -1;
                 top: -0.4rem;
                 left: -0.4rem;
                 bottom: -0.4rem;
                 right: -0.4rem;
-                background-color: #00000010;
+                background-color: var(--primary);
                 border-radius: 2rem;
                 pointer-events: none;
             }

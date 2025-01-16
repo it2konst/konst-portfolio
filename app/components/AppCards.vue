@@ -130,6 +130,7 @@ const loadCards = async () => {
         // height: max-content;
         opacity: 0.85;
         border-radius: 1rem;
+        outline: var(--outline-theme);
         overflow: hidden;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
             rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -145,7 +146,7 @@ const loadCards = async () => {
         width: 100%;
         aspect-ratio: 16 / 9;
         overflow: hidden;
-        background-color: #ffffff60;
+        background-color: var(--primary-light);
 
         img {
             max-width: 100%;
@@ -164,7 +165,7 @@ const loadCards = async () => {
         gap: 0.2rem;
 
         padding: 0rem 1rem 1rem 1rem;
-        background-color: var(--color-dark);
+        background-color: var(--primary);
 
         &:before {
             content: "";
@@ -175,7 +176,7 @@ const loadCards = async () => {
             width: 5rem;
             height: 3rem;
             border-radius: 0 100% 0 0;
-            background-color: var(--color-dark);
+            background-color: var(--primary);
             transform: translateY(-80%);
             pointer-events: none;
             // outline: var(--outline);
@@ -201,7 +202,7 @@ const loadCards = async () => {
         border-radius: 50%;
 
         overflow: hidden;
-        background-color: var(--color-dark);
+        background-color: var(--text-primary-light);
         outline: var(--outline);
         pointer-events: none;
     }
@@ -211,6 +212,7 @@ const loadCards = async () => {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        color: var(--text-primary);
     }
 
     &__description {
@@ -229,12 +231,14 @@ const loadCards = async () => {
 
         hyphens: auto;
         word-wrap: break-word;
+        color: var(--text-primary-light);
 
         &:before {
             position: absolute;
+            z-index: -1;
             content: "";
             inset: 0;
-            background-color: #ffffff20;
+            background-color: var(--primary-light);
             border-radius: 1rem;
             pointer-events: none;
         }
@@ -265,6 +269,7 @@ const loadCards = async () => {
     .cards__img-wrap::after {
         content: "";
         position: absolute;
+
         left: -50%;
         top: -50%;
         z-index: 1;
@@ -272,8 +277,9 @@ const loadCards = async () => {
         width: 160%;
         height: 160%;
         border-radius: 0 0 100% 0;
-        background-color: #00000060;
-        outline: var(--outline);
+        // background-color: #00000040;
+        background-color: var(--primary);
+        outline: var(--outline-theme);
         pointer-events: none;
 
         transform-origin: top left;
@@ -293,7 +299,8 @@ const loadCards = async () => {
         z-index: 2;
 
         padding: 0.5rem 1rem;
-        background-color: #00000060;
+
+        background-color: transparent;
         pointer-events: none;
 
         font-family: var(--font-family-base);
@@ -301,7 +308,7 @@ const loadCards = async () => {
         font-size: rem-clamp(18, 22);
         letter-spacing: -0.03em;
         line-height: 1.2;
-        color: var(--color-light);
+        color: var(--text-primary);
 
         hyphens: auto;
         word-wrap: break-word;

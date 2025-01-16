@@ -182,18 +182,20 @@ const menuItems: MenuItem[] = [
             outline: var(--outline-theme);
             border-radius: 1rem;
 
-            background-color: var(--color-bg1);
+            background-color: var(--primary);
         }
     }
 
     &__menu-item {
-        border-radius: 0.5rem;
-
         display: grid;
         place-items: center;
+        border-radius: 0.5rem;
+
         @include mobile {
             max-width: 12.5rem; // 200px
             width: 100%;
+
+            text-transform: uppercase;
         }
         a {
             display: grid;
@@ -204,26 +206,21 @@ const menuItems: MenuItem[] = [
             height: 100%;
             width: 100%;
             // border-radius: 0.5rem;
-
-            color: var(--color-text1);
             outline: rem(2) solid transparent;
 
             font-family: var(--font-family-base);
             font-size: rem-clamp(18, 24);
             letter-spacing: -0.03em;
+            color: var(--text-primary);
 
             transition: outline 0.3s ease-in;
-
-            // background-color: #ffffff10;
-            // width: 10rem;
 
             &.is-active {
                 outline: var(--outline-theme);
             }
 
             @include hover {
-                // outline: var(--outline-theme);
-                background-color: var(--color-bg2);
+                background-color: var(--primary-light);
             }
         }
     }

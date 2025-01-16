@@ -26,7 +26,7 @@ if (error.value) {
                 <p class="card-details__description" v-html="data?.desc"></p>
                 <div class="card-details__button-wrap">
                     <a :href="data?.gitHub" target="_blank" class="button button--accent">GitHub</a>
-                    <a :href="data?.liveSite" target="_blank" class="button button--accent">Live Site</a>
+                    <a :href="data?.liveSite" target="_blank" class="button button--accent">Visit Site</a>
                 </div>
             </div>
         </div>
@@ -84,9 +84,10 @@ if (error.value) {
         overflow: hidden;
 
         font-size: 1.2rem;
-        background-color: var(--color-dark);
+        background-color: var(--primary);
         padding: 0.5rem 1rem 0.5rem 1rem;
         border-radius: 1rem;
+        color: var(--text-primary-light);
 
         hyphens: auto;
         word-wrap: break-word;
@@ -100,7 +101,7 @@ if (error.value) {
         max-width: rem-clamp(300, 360);
         width: 100%;
         overflow: hidden;
-        background-color: var(--color-dark);
+        background-color: var(--primary);
         padding: 0.5rem 1rem 1rem 1rem;
         border-radius: 1rem;
 
@@ -112,11 +113,13 @@ if (error.value) {
     .card-details__title {
         font-size: 2rem;
         margin-bottom: 10px;
+        color: var(--text-primary);
     }
 
     .card-details__description {
         font-size: 1rem;
         margin-bottom: 20px;
+        color: var(--text-primary-light);
     }
 
     .card-details__button-wrap {
