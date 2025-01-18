@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import DarkMode from "@/components/block/DarkMode.vue";
+import AppLogo from "./block/AppLogo.vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -30,10 +31,7 @@ const menuItems: MenuItem[] = [
 <template>
     <header class="header">
         <div class="container">
-            <NuxtLink class="header__logo" to="/" aria-label="Home" title="Home" draggable="false">
-                <img class="logo__image" src="/images/logo.svg" alt="" draggable="false" />
-                <p class="h4">KonstBerg</p>
-            </NuxtLink>
+            <app-logo></app-logo>
             <div class="header__overlay" :class="{ 'is-active': isBurger }" @click="closeMenu">
                 <nav class="header__menu">
                     <ul class="header__menu-list">
@@ -50,6 +48,11 @@ const menuItems: MenuItem[] = [
                         </li>
                         <li class="header__menu-item">
                             <DarkMode />
+                        </li>
+                        <li class="header__menu-item" v-if="isBurger" style="pointer-events: none">
+                            <hr class="header__menu-divider" />
+                            <app-logo></app-logo>
+                            <!-- <img src="/images/logo.svg" width="40" height="40" alt="" draggable="false" /> -->
                         </li>
                     </ul>
                 </nav>
@@ -114,21 +117,6 @@ const menuItems: MenuItem[] = [
         padding: 1rem 1rem 1rem 1rem;
     }
 
-    &__logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        // max-width: rem-clamp(130, 204);
-        // width: 100%;
-        img {
-            display: block;
-            max-width: rem-clamp(34, 50);
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-    }
-
     &__overlay {
         position: relative;
 
@@ -177,7 +165,7 @@ const menuItems: MenuItem[] = [
             padding-block: 2rem;
             width: 100%;
             max-width: 80%;
-            gap: 2rem;
+            gap: 1rem;
 
             outline: var(--outline-theme);
             border-radius: 1rem;
@@ -191,12 +179,11 @@ const menuItems: MenuItem[] = [
         place-items: center;
         border-radius: 0.5rem;
 
-        @include mobile {
-            max-width: 12.5rem; // 200px
+        .header__menu-divider {
             width: 100%;
-
-            text-transform: uppercase;
+            border-color: var(--primary-light);
         }
+
         a {
             display: grid;
             place-items: center;
@@ -205,22 +192,31 @@ const menuItems: MenuItem[] = [
             padding: 0.5rem 1rem;
             height: 100%;
             width: 100%;
-            // border-radius: 0.5rem;
             outline: rem(2) solid transparent;
 
             font-family: var(--font-family-base);
-            font-size: rem-clamp(18, 24);
+            font-size: rem-clamp(16, 22);
             letter-spacing: -0.03em;
             color: var(--text-primary);
 
-            transition: outline 0.3s ease-in;
+            transition: outline 0.3s ease-in, background-color 0.3s ease-in, color 0.3s ease-in;
 
             &.is-active {
                 outline: var(--outline-theme);
             }
 
             @include hover {
-                background-color: var(--primary-light);
+                background-color: var(--secondary);
+                color: var(--primary);
+            }
+        }
+
+        @include mobile {
+            max-width: 12.5rem; // 200px
+            width: 100%;
+            // text-transform: uppercase;
+            a {
+                font-size: 20px;
             }
         }
     }
@@ -237,12 +233,6 @@ const menuItems: MenuItem[] = [
         display: flex;
         align-items: center;
         gap: 1rem;
-
-        // @include mobile {
-        //     .button {
-        //         display: none;
-        //     }
-        // }
     }
 }
 </style>

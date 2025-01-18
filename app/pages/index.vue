@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MainHero from "@/components/main/MainHero.vue";
+import MainHero from "@/components/main/TheHero.vue";
 
 useSeoMeta({
     title: "Konst Portfolio | Modern Web Development Projects",

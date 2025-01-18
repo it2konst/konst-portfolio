@@ -212,7 +212,7 @@ const loadCards = async () => {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        color: var(--text-primary);
+        color: var(--text-primary-light);
     }
 
     &__description {
@@ -232,6 +232,7 @@ const loadCards = async () => {
         hyphens: auto;
         word-wrap: break-word;
         color: var(--text-primary-light);
+        border-radius: 1rem;
 
         &:before {
             position: absolute;
@@ -243,7 +244,13 @@ const loadCards = async () => {
             pointer-events: none;
         }
 
-        transition: max-height 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: max-height 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s ease-in,
+            color 0.2s ease-in;
+
+        @include hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
 
         @include mobile-s {
             max-height: 10lh;
@@ -277,14 +284,12 @@ const loadCards = async () => {
         width: 160%;
         height: 160%;
         border-radius: 0 0 100% 0;
-        // background-color: #00000040;
-        background-color: var(--primary);
+        background-color: rgba(var(--primary-rgb), 0.75);
         outline: var(--outline-theme);
         pointer-events: none;
 
         transform-origin: top left;
         transform: scale(0);
-        // transform: scale(1);
         transition: transform 0.3s ease-in-out;
     }
 

@@ -9,6 +9,7 @@ $color-bg: #99b3c6;
 
 :root {
     --primary: #221831;
+    --primary-rgb: 34, 24, 49;
     --primary-light: #465779;
 
     --secondary: #8992a5;
@@ -16,6 +17,8 @@ $color-bg: #99b3c6;
 
     --text-primary: #d7d9df;
     --text-primary-light: #ecedf0;
+
+    --color-accent: var(--secondary);
 
     //--- ---
     --indicate: #e6e6e6;
@@ -26,6 +29,7 @@ $color-bg: #99b3c6;
 
 :root[data-theme="dark"] {
     --primary: #141414;
+    --primary-rgb: 20, 20, 20;
     --primary-light: #535353;
 
     --secondary: #ffd11a;
@@ -33,6 +37,8 @@ $color-bg: #99b3c6;
 
     --text-primary: #ffeec4;
     --text-primary-light: #fff6e4;
+
+    --color-accent: var(--secondary);
 
     //--- ---
     --bg-indicate: #ec6e4d;
